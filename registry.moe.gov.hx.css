@@ -3,8 +3,9 @@
 
 /* 表格最外层有一个粗线框，圆角 */
 table {
- border: 1px solid black;
+ border: 2px solid black;
  border-radius: 5px;
+ width: 100%;
 }
 
 /* 每一行之间能够展示一条分隔线 */
@@ -20,12 +21,24 @@ body {
 }
 
 h1 {
- font-size: 24px;
- color: #000;
-}
-
-table {
- width: 100%;
+    background-color: #3b5998; /* 这是藏蓝色，示例色值 */
+    color: white;
+    font-weight: bold; /* 加粗文本 */
+    font-size: 28px; /* 增加字号大小 */
+    width: 100%; /* 使背景色填充整行 */
+    padding: 10px 0; /* 为文本上下添加间距，左右保持为 0 */
+    margin: 0; /* 移除默认的 margin */
+    text-align: center; /* 如果你想要文字居中 */
+    box-sizing: border-box; /* 确保内边距不会影响到元素的总宽度 */
+  }
+  
+  /* 追加的 h2 样式 */
+h2 {
+    font-size: 20px; /* 比 h1 字号略小 */
+    color: #333; /* 继续使用淡雅的文字颜色 */
+    font-weight: normal; /* 默认权重，不加粗 */
+    /* 追加样式的其他属性可以根据需要来设置 */
+    text-align: center; /* 如果你想要文字居中 */
 }
 
 th {
@@ -41,4 +54,20 @@ a {
  color: #000;
 }
 
-/* 由 Palm Codey 32K 生成 */ 
+hr {
+    display: block;     /* 覆盖旧版浏览器的默认样式 */
+    margin-before: 0.5em;
+    margin-after: 0.5em;
+    margin-start: auto;
+    margin-end: auto;
+    border-style: inset; /* 边框样式 */
+    border-width: 4px;  /* 边框宽度 */
+}
+
+.completed {
+    color: green;
+  }
+  
+.uncompleted {
+    color: red;
+  }
