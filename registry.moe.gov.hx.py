@@ -191,4 +191,10 @@ print(
     "=",
     len(universities_full),
 )
+
+# TODO
+# 1. 对short_name进行查重，出现重复的时候自动加粗标红
+# 2. 自动识别母体大学，合并多个校区代码不会重复出现
+# 3. 在英文名中自动识别简称可能来自的字母（首字母大写）并给出加粗该字母的建议。（可能比较困难）
+
 gen_pages(universities_completed_sorted, universities_uncompleted_sorted)
