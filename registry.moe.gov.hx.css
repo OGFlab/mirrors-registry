@@ -1,0 +1,44 @@
+/* 调用外部资源 */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css');
+
+/* 表格最外层有一个粗线框，圆角 */
+table {
+ border: 1px solid black;
+ border-radius: 5px;
+}
+
+/* 每一行之间能够展示一条分隔线 */
+tr {
+ border-bottom: 1px solid #ccc;
+}
+
+/* 表格字体得当，配色较为淡雅 */
+body {
+ font-family: Arial, sans-serif;
+ font-size: 14px;
+ color: #333;
+}
+
+h1 {
+ font-size: 24px;
+ color: #000;
+}
+
+table {
+ width: 100%;
+}
+
+th {
+ background-color: #eee;
+ text-align: center;
+}
+
+td {
+ text-align: left;
+}
+
+a {
+ color: #000;
+}
+
+/* 由 Palm Codey 32K 生成 */ 
