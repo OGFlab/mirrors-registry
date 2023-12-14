@@ -1,8 +1,8 @@
 import copy
 from typing import Dict, List
 
-from src.ogf_register_viewer.method.gen_pages import gen_pages
-from src.ogf_register_viewer.method.get_plain_dataframe import (
+from method.gen_pages import gen_pages
+from method.get_plain_dataframe import (
     get_plain_dataframe,
 )
 
