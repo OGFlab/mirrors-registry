@@ -11,63 +11,10 @@ def gen_pages(
     universities_uncompleted_sorted,
     optional_data=None,
 ):
-    template_str = """
-    <!DOCTYPE html>
-    <html lang="zh-CN">
-    <head>
-        <meta charset="UTF-8">
-        <title>{{ page_title }}</title>
-        <link href="https://laoshubaby.oss-cn-beijing.aliyuncs.com/static/registry.moe.gov.hx.css" rel="stylesheet" />
-    </head>
-    <body>
-        <h1>{{ page_title }} (Completed Count: {{ universities_completed_count }}/{{ universities_full_count }})</h1>
-        <h2>Completed</h2>
-        <table>
-            <tr>
-                <th style="font-size: 16px">ID</th>
-                <th>简称<br/><code>short_name</code></th>
-                <th>省份<br/><code>addr:province</code></th>
-                <th>运营者<br/><code>operator</code></th>
-                <th>中文名<br/><code>name</code></th>
-                <th>英文名<br/><code>name:en</code></th>
-            </tr>
-            {% for university in universities_completed %}
-            <tr>
-                <td><a class="completed" href="https://opengeofiction.net/{{ university['@type'] }}/{{ university['@id'] }}">{{ university['@type'] }}{{ university['@id'] }}</a></td>
-                <td style="text-align: center;font-weight: bold;">{{ university['short_name'] }}</td>
-                <td>{{ university['addr:province'] }}</td>
-                <td>{{ university['operator'] }}</td>
-                <td>{{ university['name'] }}</td>
-                <td>{{ university['name:en'] }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-        <hr/>
-        <h2>Uncompleted</h2>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>简称<br/><code>short_name</code></th>
-                <th>省份<br/><code>addr:province</code></th>
-                <th>运营者<br/><code>operator</code></th>
-                <th>中文名<br/><code>name</code></th>
-                <th>英文名<br/><code>name:en</code></th>
-            </tr>
-            {% for university in universities_uncompleted %}
-            <tr>
-                <td><a class="uncompleted"href="https://opengeofiction.net/{{ university['@type'] }}/{{ university['@id'] }}">{{ university['@type'] }}{{ university['@id'] }}</a></td>
-                <td style="text-align: center;font-weight: bold;">{{ university['short_name'] }}</td>
-                <td>{{ university['addr:province'] }}</td>
-                <td>{{ university['operator'] }}</td>
-                <td>{{ university['name'] }}</td>
-                <td>{{ university['name:en'] }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-    </body>
-    </html>
-    """
-
+    template_file=open("../css/registry.moe.gov.hx.css","r",encoding="utf-8")
+    template_str = template_file.read()
+    template_file.close()
+    
     template = Template(template_str)
     optional_data = {
         "page_title": "MOE of Republic of Huaxia - Universities List"
