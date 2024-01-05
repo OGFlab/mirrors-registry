@@ -7,10 +7,11 @@ from jinja2 import Template
 def gen_pages(
     universities_completed_sorted,
     universities_uncompleted_sorted,
-    optional_data=None,
+    template_file_name:str,
+    optional_data=None
 ):
     template_file = open(
-        "../css/registry.moe.gov.hx.html", "r", encoding="utf-8"
+        "../assets/"+template_file_name, "r", encoding="utf-8"
     )
     template_str = template_file.read()
     template_file.close()

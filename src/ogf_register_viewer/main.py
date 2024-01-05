@@ -63,4 +63,4 @@ print(
 # 2. 自动识别母体大学，合并多个校区代码不会重复出现
 # 3. 在英文名中自动识别简称可能来自的字母（首字母大写）并给出加粗该字母的建议。（可能比较困难）
 
-gen_pages(elements_completed_sorted, elements_uncompleted_sorted)
+gen_pages(elements_completed_sorted, elements_uncompleted_sorted,"registry.moe.gov.hx.html")
