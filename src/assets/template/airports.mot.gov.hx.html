@@ -20,10 +20,9 @@
     <table>
       <tr>
         <th style="font-size: 16px">ID</th>
-        <th><code>IATA</code></th>
-        <th><code>ICAO</code></th>
-        <th>中文名<br /><code>name</code></th>
-        <th>英文名<br /><code>name:en</code></th>
+        <th>IATA</th>
+        <th>ICAO</th>
+        <th>名称</th>
       </tr>
       {% for element in elements_completed %}
       <tr>
@@ -40,8 +39,11 @@
         <td style="text-align: center; font-weight: bold">
           {{ element['icao'] }}
         </td>
-        <td>{{ element['name'] }}</td>
-        <td>{{ element['name:en'] }}</td>
+        <td>
+<div class="i18n_name">中文名<br /><code>name</code></div>:{{ element['name'] }}
+        <br/>
+        <div class="i18n_name">英文名<br /><code>name:en</code></div>:{{ element['name:en'] }}
+        </td>
       </tr>
       {% endfor %}
     </table>
@@ -50,10 +52,9 @@
     <table>
       <tr>
         <th>ID</th>
-        <th><code>IATA</code></th>
-        <th><code>ICAO</code></th>
-        <th>中文名<br /><code>name</code></th>
-        <th>英文名<br /><code>name:en</code></th>
+        <th>IATA</th>
+        <th>ICAO</th>
+        <th>名称</th>
       </tr>
       {% for element in elements_uncompleted %}
       <tr>
