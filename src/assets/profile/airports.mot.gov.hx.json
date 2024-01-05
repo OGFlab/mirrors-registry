@@ -1,0 +1,12 @@
+    {
+        "key": [
+            "name",
+            "name:en",
+            "iata",
+            "icao",
+            "addr:province",
+            "operators",
+        ],
+        "type": "[aeroway=aerodrome]",
+        "poly": "hx.overpassql_poly"
+    }

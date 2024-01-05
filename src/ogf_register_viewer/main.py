@@ -1,4 +1,5 @@
 import copy
+import json
 from typing import Dict, List
 
 from method.gen_pages import gen_pages
@@ -6,26 +7,16 @@ from method.get_plain_dataframe import (
     get_plain_dataframe,
 )
 
-# elements_dataframe: List[Dict] = get_plain_dataframe(
-#     {
-#         "key": [
-#             "amenity",
-#             "name",
-#             "name:en",
-#             "short_name",
-#             "addr:province",
-#             "operators",
-#         ],
-#         "type": "[amenity=university]",
-#         "poly": "hx.overpassql_poly",
-#     }
-# )
+profile_name="registry.moe.gov.hx.json"
+profile_file=open("../assets/profile/"+profile_name,"r",encoding="utf-8")
+profile=json.loads(profile_file.read())
+profile_file.close()
+
 elements_dataframe: List[Dict] = get_plain_dataframe(
     {
         "key": [
             "name",
             "name:en",
-            "short_name",  # Because I haven't change below sort function
             "iata",
             "icao",
             "addr:province",

@@ -1,0 +1,14 @@
+{
+  "id": "registry.moe.gov.hx",
+  "key": [
+    "amenity",
+    "name",
+    "name:en",
+    "short_name",
+    "addr:province",
+    "operators"
+  ],
+  "type": "[amenity=university]",
+  "poly": "hx.overpassql_poly",
+  "vital_key":"short_name"
+}
