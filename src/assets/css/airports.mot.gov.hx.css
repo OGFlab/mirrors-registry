@@ -1,14 +1,6 @@
 @charset "UTF-8";
 
-table {
-  border: 2px solid black;
-  border-radius: 5px;
-  width: 100%;
-}
-
-tr {
-  border-bottom: 1px solid #ccc;
-}
+/*basic*/
 
 body {
   font-family: Arial, sans-serif;
@@ -26,6 +18,7 @@ h1 {
   margin: 0;
   text-align: center;
   box-sizing: border-box;
+  display: flex;
 }
 
 h2 {
@@ -33,15 +26,6 @@ h2 {
   color: #333;
   font-weight: normal;
   text-align: center;
-}
-
-th {
-  background-color: #eee;
-  text-align: center;
-}
-
-td {
-  text-align: left;
 }
 
 a {
@@ -58,52 +42,117 @@ hr {
   border-width: 4px;
 }
 
-.completed {
+/*table_related*/
+
+table {
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 100%;
+  table-layout: auto; /* 定义了固定的表格布局 */
+}
+
+tr {
+  border-bottom: 1px solid #ccc;
+}
+
+th, td {
+  overflow: hidden; /* 在内容过多时隐藏溢出部分 */
+}
+
+th {
+  background-color: #eee;
+  text-align: center;
+}
+
+/* 为第2至第5列设置最大宽度为10% */
+th:nth-child(2), td:nth-child(2),th:nth-child(3), td:nth-child(3),th:nth-child(4), td:nth-child(4),th:nth-child(5), td:nth-child(5) {
+  max-width: 8%;
+  word-wrap: break-word; /* 允许在单词处自动换行 */
+}
+
+th:nth-child(6), td:nth-child(6) { /* 假设“名称”是在第六列 */
+  max-width: 65%;
+  word-wrap: break-word; /* 允许单词内换行 */
+}
+
+
+td {
+  text-align: left;
+}
+
+/*decoration*/
+
+.id_completed {
   color: green;
 }
 
-.uncompleted {
+.id_uncompleted {
   color: red;
 }
 
-    .i18n_card {
-        border: 1px solid #ccc; /* 给卡片加上边框 */
-        border-radius: 5px; /* 可选：给卡片加上圆角 */
-        padding: 10px; /* 卡片内边距 */
-        margin-bottom: 10px; /* 卡片之间的间隔 */
-        display: flex; /* 使用flex布局使内容并排 */
-    }
+.i18n_card {
+  border: 1px solid #ccc; /* 给卡片加上边框 */
+  border-radius: 5px; /* 可选：给卡片加上圆角 */
+  padding: 10px; /* 卡片内边距 */
+  margin-bottom: 1px; /* 卡片之间的间隔 */
+  display: flex; /* 使用flex布局使内容并排 */
+}
 
-    .i18n_lang_name, .i18n_name {
-        width: 50%; /* 左半部分占一半宽 */
-        padding-right: 5px; /* 右侧留一些间隔 */
-    }
+.i18n_lang_name,
+.i18n_name {
+  width: 50%; /* 左半部分占一半宽 */
+  padding-right: 5px; /* 右侧留一些间隔 */
+}
 
-    .i18n_lang_name code, .i18n_name code {
-        background-color: #f0f0f0; /* 代码部分背景色 */
-    }
+.i18n_lang_name code,
+.i18n_name code {
+  background-color: #f0f0f0; /* 代码部分背景色 */
+}
 
-    .i18n_card > div {
-        display: flex;
-        justify-content: space-between; /* 分散对齐，使左侧和右侧内容对齐两端 */
-    }
+.i18n_card > div {
+  display: flex;
+  justify-content: space-between; /* 分散对齐，使左侧和右侧内容对齐两端 */
+}
 
-    .i18n_card > div::after {
-        content: '|'; /* 分隔符 */
-        margin-left: 5px; /* 分隔符和文字之间的间隔 */
-    }
+.i18n_card > div::after {
+  content: "|"; /* 分隔符 */
+  margin-left: 5px; /* 分隔符和文字之间的间隔 */
+}
 
-        .main_page {
-        border: 1px solid #ccc; /* 给卡片加上边框 */
-        border-radius: 5px; /* 可选：给卡片加上圆角 */
-        padding: 10px; /* 卡片内边距 */
-        margin-bottom: 10px; /* 卡片之间的间隔 */
-        display: flex; /* 使用flex布局使内容并排 */
-    }
-     .main_page_semi {
-        border: 1px solid #ccc; /* 给卡片加上边框 */
-        border-radius: 5px; /* 可选：给卡片加上圆角 */
-        padding: 10px; /* 卡片内边距 */
-        margin-bottom: 10px; /* 卡片之间的间隔 */
-        display: flex; /* 使用flex布局使内容并排 */
-    }
+.main_page {
+  border: 1px solid #ccc; /* 给卡片加上边框 */
+  border-radius: 5px; /* 可选：给卡片加上圆角 */
+  padding: 10px; /* 卡片内边距 */
+  margin-bottom: 10px; /* 卡片之间的间隔 */
+}
+
+  /* 添加CSS以保证内容居中和样式 */
+  .header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px; /* 这里设置h1的高度 */
+    border: 1px solid #000; /* 如果需要h1周围的边框 */
+    margin: 20px; /* 离四边的距离 */
+    text-align: center;
+  }
+
+  .header-wrapper img {
+    vertical-align: middle;
+    margin-right: 15px; /* 右边距，可根据需要调整 */
+  }
+
+  .header-wrapper .page_title {
+    font-size: 24px; /* 标题字体大小，可根据需要调整 */
+    font-weight: bold;
+    line-height: 1.5; /* 标题行高 */
+    margin-left: 15px; /* 左边距，与图片的间隔相同 */
+    white-space: nowrap; /* 防止标题换行 */
+  }
+
+  /* 分割线样式 */
+  .divider {
+    background-color: #000;
+    width: 1px;
+    height: 80%; /* 根据需要调整分割线的高度 */
+  }
