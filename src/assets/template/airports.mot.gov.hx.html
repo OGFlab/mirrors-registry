@@ -26,90 +26,101 @@
       </p>
     </h1>
     <div class="main_page">
-      <h2>Completed</h2>
-      <table>
-        <tr class="table_header">
-          <th style="font-size: 16px">ID</th>
-          <th>IATA</th>
-          <th>ICAO</th>
-          <th>WAAT</th>
-          <th>ANACA</th>
-          <th>名称</th>
-        </tr>
-        {% for element in elements_completed %}
-        <tr class="table_row">
-          <td>
-            <a
-              class="id_completed"
-              href="https://opengeofiction.net/{{ element['@type'] }}/{{ element['@id'] }}"
-              >{{ element['@type'] }}{{ element['@id'] }}</a
-            >
-          </td>
-          <td style="text-align: center; font-weight: bold">
-            {{ element['iata'] }}
-          </td>
-          <td style="text-align: center; font-weight: bold">
-            {{ element['icao'] }}
-          </td>
-          <td style="text-align: center; font-weight: bold">
-            {{ element['waat'] }}
-          </td>
-          <td style="text-align: center; font-weight: bold">
-            {{ element['anaca'] }}
-          </td>
-          <td>
-            <div class="i18n_card">
-              <div class="i18n_lang_name">中文名<br /><code>name</code></div>
-              {{ element['name'] }}
-            </div>
-            <br />
-            <div class="i18n_card">
-              <div class="i18n_name">英文名<br /><code>name:en</code></div>
-              {{ element['name:en'] }}
-            </div>
-          </td>
-        </tr>
-        {% endfor %}
-      </table>
-    </div>
-    <hr />
-    <div class="main_page">
-      <h2>Uncompleted</h2>
-      <table>
-        <tr class="table_header">
-          <th>ID</th>
-          <th>IATA</th>
-          <th>ICAO</th>
-          <th>WAAT</th>
-          <th>ANACA</th>
-          <th>名称</th>
-        </tr>
-        {% for element in elements_uncompleted %}
-        <tr class="table_row">
-          <td>
-            <a
-              class="id_uncompleted"
-              href="https://opengeofiction.net/{{ element['@type'] }}/{{ element['@id'] }}"
-              >{{ element['@type'] }}{{ element['@id'] }}</a
-            >
-          </td>
-          <td style="text-align: center; font-weight: bold">
-            {{ element['iata'] }}
-          </td>
-          <td style="text-align: center; font-weight: bold">
-            {{ element['icao'] }}
-          </td>
-          <td style="text-align: center; font-weight: bold">
-            {{ element['waat'] }}
-          </td>
-          <td style="text-align: center; font-weight: bold">
-            {{ element['anaca'] }}
-          </td>
-          <td>{{ element['name'] }}</td>
-          <td>{{ element['name:en'] }}</td>
-        </tr>
-        {% endfor %}
-      </table>
+      <div class="main_paragraph">
+        <h2>Completed</h2>
+        <table>
+          <tr class="table_header">
+            <th style="font-size: 16px">ID</th>
+            <th>IATA</th>
+            <th>ICAO</th>
+            <th>WAAT</th>
+            <th>ANACA</th>
+            <th>名称</th>
+          </tr>
+          {% for element in elements_completed %}
+          <tr class="table_row">
+            <td>
+              <a
+                class="id_completed"
+                href="https://opengeofiction.net/{{ element['@type'] }}/{{ element['@id'] }}"
+                style="text-align: center;"
+                >{{ element['@type'] }}{{ element['@id'] }}</a
+              >
+            </td>
+            <td class="td_code_data">{{ element['iata'] }}</td>
+            <td class="td_code_data">{{ element['icao'] }}</td>
+            <td class="td_code_data">{{ element['waat'] }}</td>
+            <td class="td_code_data">{{ element['anaca'] }}</td>
+            <td>
+              <div class="i18n_card">
+                <div class="i18n_lang_name">
+                  中文名
+                  <br />
+                  <code>name</code>
+                </div>
+                <div class="i18n_lang_content">{{ element['name'] }}</div>
+              </div>
+              <div class="i18n_card">
+                <div class="i18n_lang_name">
+                  英文名
+                  <br />
+                  <code>name:en</code>
+                </div>
+                <div class="i18n_lang_content">{{ element['name:en'] }}</div>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      <hr class="hr_special" />
+      <div class="main_paragraph">
+        <h2>Uncompleted</h2>
+        <table>
+          <tr class="table_header">
+            <th>ID</th>
+            <th>IATA</th>
+            <th>ICAO</th>
+            <th>WAAT</th>
+            <th>ANACA</th>
+            <th>名称</th>
+          </tr>
+          {% for element in elements_uncompleted %}
+          <tr class="table_row">
+            <td>
+              <a
+                class="id_uncompleted"
+                href="https://opengeofiction.net/{{ element['@type'] }}/{{ element['@id'] }}"
+                style="text-align: center;"
+                >{{ element['@type'] }}{{ element['@id'] }}</a
+              >
+            </td>
+            <td class="td_code_data">{{ element['iata'] }}</td>
+            <td class="td_code_data">{{ element['icao'] }}</td>
+            <td class="td_code_data">{{ element['waat'] }}</td>
+            <td class="td_code_data">{{ element['anaca'] }}</td>
+            <td>
+              <div class="i18n_card">
+                <div class="i18n_lang_name">
+                  中文名
+                  <br />
+                  <code>name</code>
+                </div>
+                <div class="i18n_lang_content">{{ element['name'] }}</div>
+              </div>
+              <div class="i18n_card">
+                <div class="i18n_lang_name">
+                  英文名
+                  <br />
+                  <code>name:en</code>
+                </div>
+                <div class="i18n_lang_content">{{ element['name:en'] }}</div>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
     </div>
   </body>
 </html>
