@@ -10,5 +10,5 @@
   ],
   "type": "[amenity=university]",
   "poly": "hx.overpassql_poly",
-  "vital_key":"short_name"
+  "vital_key": "short_name"
 }

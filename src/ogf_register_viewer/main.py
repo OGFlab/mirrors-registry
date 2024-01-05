@@ -7,23 +7,17 @@ from method.get_plain_dataframe import (
     get_plain_dataframe,
 )
 
-profile_name="registry.moe.gov.hx.json"
-profile_file=open("../assets/profile/"+profile_name,"r",encoding="utf-8")
-profile=json.loads(profile_file.read())
+# profile_name = "registry.moe.gov.hx.json"
+profile_name = "airports.mot.gov.hx.json"
+profile_file = open("../assets/profile/" + profile_name, "r", encoding="utf-8")
+profile = json.loads(profile_file.read())
 profile_file.close()
 
 elements_dataframe: List[Dict] = get_plain_dataframe(
     {
-        "key": [
-            "name",
-            "name:en",
-            "iata",
-            "icao",
-            "addr:province",
-            "operators",
-        ],
-        "type": "[aeroway=aerodrome]",
-        "poly": "hx.overpassql_poly",
+        "key": profile["key"],
+        "type": profile["type"],
+        "poly": profile["poly"],
     }
 )
 elements_full: List[Dict] = copy.deepcopy(elements_dataframe)
@@ -31,7 +25,7 @@ elements_completed: List[Dict] = list(
     filter(
         bool,
         [
-            item_dict if item_dict.get("short_name") != "" else None
+            item_dict if item_dict.get(profile["vital_key"]) != "" else None
             for item_dict in elements_dataframe
         ],
     )

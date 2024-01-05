@@ -1,12 +1,12 @@
-    {
-        "key": [
-            "name",
-            "name:en",
-            "iata",
-            "icao",
-            "addr:province",
-            "operators",
-        ],
-        "type": "[aeroway=aerodrome]",
-        "poly": "hx.overpassql_poly"
-    }
+{
+  "id": "airports.mot.gov.hx",
+  "key": [
+    "name",
+    "name:en",
+    "iata",
+    "icao"
+  ],
+  "type": "[aeroway=aerodrome]",
+  "poly": "hx.overpassql_poly",
+  "vital_key": "iata"
+}
