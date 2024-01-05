@@ -65,3 +65,45 @@ hr {
 .uncompleted {
   color: red;
 }
+
+    .i18n_card {
+        border: 1px solid #ccc; /* 给卡片加上边框 */
+        border-radius: 5px; /* 可选：给卡片加上圆角 */
+        padding: 10px; /* 卡片内边距 */
+        margin-bottom: 10px; /* 卡片之间的间隔 */
+        display: flex; /* 使用flex布局使内容并排 */
+    }
+
+    .i18n_lang_name, .i18n_name {
+        width: 50%; /* 左半部分占一半宽 */
+        padding-right: 5px; /* 右侧留一些间隔 */
+    }
+
+    .i18n_lang_name code, .i18n_name code {
+        background-color: #f0f0f0; /* 代码部分背景色 */
+    }
+
+    .i18n_card > div {
+        display: flex;
+        justify-content: space-between; /* 分散对齐，使左侧和右侧内容对齐两端 */
+    }
+
+    .i18n_card > div::after {
+        content: '|'; /* 分隔符 */
+        margin-left: 5px; /* 分隔符和文字之间的间隔 */
+    }
+
+        .main_page {
+        border: 1px solid #ccc; /* 给卡片加上边框 */
+        border-radius: 5px; /* 可选：给卡片加上圆角 */
+        padding: 10px; /* 卡片内边距 */
+        margin-bottom: 10px; /* 卡片之间的间隔 */
+        display: flex; /* 使用flex布局使内容并排 */
+    }
+     .main_page_semi {
+        border: 1px solid #ccc; /* 给卡片加上边框 */
+        border-radius: 5px; /* 可选：给卡片加上圆角 */
+        padding: 10px; /* 卡片内边距 */
+        margin-bottom: 10px; /* 卡片之间的间隔 */
+        display: flex; /* 使用flex布局使内容并排 */
+    }

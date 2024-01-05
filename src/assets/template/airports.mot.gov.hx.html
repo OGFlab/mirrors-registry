@@ -16,65 +16,91 @@
       {{ page_title }} (Completed Count: {{ elements_completed_count }}/{{
       elements_full_count }})
     </h1>
-    <h2>Completed</h2>
-    <table>
-      <tr>
-        <th style="font-size: 16px">ID</th>
-        <th>IATA</th>
-        <th>ICAO</th>
-        <th>名称</th>
-      </tr>
-      {% for element in elements_completed %}
-      <tr>
-        <td>
-          <a
-            class="completed"
-            href="https://opengeofiction.net/{{ element['@type'] }}/{{ element['@id'] }}"
-            >{{ element['@type'] }}{{ element['@id'] }}</a
-          >
-        </td>
-        <td style="text-align: center; font-weight: bold">
-          {{ element['iata'] }}
-        </td>
-        <td style="text-align: center; font-weight: bold">
-          {{ element['icao'] }}
-        </td>
-        <td>
-<div class="i18n_name">中文名<br /><code>name</code></div>:{{ element['name'] }}
-        <br/>
-        <div class="i18n_name">英文名<br /><code>name:en</code></div>:{{ element['name:en'] }}
-        </td>
-      </tr>
-      {% endfor %}
-    </table>
+    <div class="main_page_semi">
+      <h2>Completed</h2>
+      <table>
+        <tr>
+          <th style="font-size: 16px">ID</th>
+          <th>IATA</th>
+          <th>ICAO</th>
+          <th>WAAT</th>
+          <th>ANACA</th>
+          <th>名称</th>
+        </tr>
+        {% for element in elements_completed %}
+        <tr>
+          <td>
+            <a
+              class="completed"
+              href="https://opengeofiction.net/{{ element['@type'] }}/{{ element['@id'] }}"
+              >{{ element['@type'] }}{{ element['@id'] }}</a
+            >
+          </td>
+          <td style="text-align: center; font-weight: bold">
+            {{ element['iata'] }}
+          </td>
+          <td style="text-align: center; font-weight: bold">
+            {{ element['icao'] }}
+          </td>
+          <td style="text-align: center; font-weight: bold">
+            {{ element['waat'] }}
+          </td>
+          <td style="text-align: center; font-weight: bold">
+            {{ element['anaca'] }}
+          </td>
+          <td>
+            <div class="i18n_card">
+              <div class="i18n_lang_name">中文名<br /><code>name</code></div>
+              :{{ element['name'] }}
+            </div>
+            <br />
+            <div class="i18n_card">
+              <div class="i18n_name">英文名<br /><code>name:en</code></div>
+              :{{ element['name:en'] }}
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
     <hr />
-    <h2>Uncompleted</h2>
-    <table>
-      <tr>
-        <th>ID</th>
-        <th>IATA</th>
-        <th>ICAO</th>
-        <th>名称</th>
-      </tr>
-      {% for element in elements_uncompleted %}
-      <tr>
-        <td>
-          <a
-            class="uncompleted"
-            href="https://opengeofiction.net/{{ element['@type'] }}/{{ element['@id'] }}"
-            >{{ element['@type'] }}{{ element['@id'] }}</a
-          >
-        </td>
-        <td style="text-align: center; font-weight: bold">
-          {{ element['iata'] }}
-        </td>
-        <td style="text-align: center; font-weight: bold">
-          {{ element['icao'] }}
-        </td>
-        <td>{{ element['name'] }}</td>
-        <td>{{ element['name:en'] }}</td>
-      </tr>
-      {% endfor %}
-    </table>
+    <div class="main_page_semi">
+      <h2>Uncompleted</h2>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>IATA</th>
+          <th>ICAO</th>
+          <th>WAAT</th>
+          <th>ANACA</th>
+          <th>名称</th>
+        </tr>
+        {% for element in elements_uncompleted %}
+        <tr>
+          <td>
+            <a
+              class="uncompleted"
+              href="https://opengeofiction.net/{{ element['@type'] }}/{{ element['@id'] }}"
+              >{{ element['@type'] }}{{ element['@id'] }}</a
+            >
+          </td>
+          <td style="text-align: center; font-weight: bold">
+            {{ element['iata'] }}
+          </td>
+          <td style="text-align: center; font-weight: bold">
+            {{ element['icao'] }}
+          </td>
+          <td style="text-align: center; font-weight: bold">
+            {{ element['waat'] }}
+          </td>
+          <td style="text-align: center; font-weight: bold">
+            {{ element['anaca'] }}
+          </td>
+          <td>{{ element['name'] }}</td>
+          <td>{{ element['name:en'] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
   </body>
 </html>

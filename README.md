@@ -12,7 +12,7 @@
 Use [prettier](https://prettier.io/) format frontend code
 
 ```commandline
-npx *
+prettier <filename> --write
 ```
 
 ## TODO(in Chinese)
