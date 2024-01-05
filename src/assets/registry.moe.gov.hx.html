@@ -13,8 +13,8 @@
   </head>
   <body>
     <h1>
-      {{ page_title }} (Completed Count: {{ universities_completed_count }}/{{
-      universities_full_count }})
+      {{ page_title }} (Completed Count: {{ elements_completed_count }}/{{
+      elements_full_count }})
     </h1>
     <h2>Completed</h2>
     <table>
@@ -26,22 +26,22 @@
         <th>中文名<br /><code>name</code></th>
         <th>英文名<br /><code>name:en</code></th>
       </tr>
-      {% for university in universities_completed %}
+      {% for element in elements_completed %}
       <tr>
         <td>
           <a
             class="completed"
-            href="https://opengeofiction.net/{{ university['@type'] }}/{{ university['@id'] }}"
-            >{{ university['@type'] }}{{ university['@id'] }}</a
+            href="https://opengeofiction.net/{{ element['@type'] }}/{{ element['@id'] }}"
+            >{{ element['@type'] }}{{ element['@id'] }}</a
           >
         </td>
         <td style="text-align: center; font-weight: bold">
-          {{ university['short_name'] }}
+          {{ element['short_name'] }}
         </td>
-        <td>{{ university['addr:province'] }}</td>
-        <td>{{ university['operator'] }}</td>
-        <td>{{ university['name'] }}</td>
-        <td>{{ university['name:en'] }}</td>
+        <td>{{ element['addr:province'] }}</td>
+        <td>{{ element['operator'] }}</td>
+        <td>{{ element['name'] }}</td>
+        <td>{{ element['name:en'] }}</td>
       </tr>
       {% endfor %}
     </table>
@@ -56,22 +56,22 @@
         <th>中文名<br /><code>name</code></th>
         <th>英文名<br /><code>name:en</code></th>
       </tr>
-      {% for university in universities_uncompleted %}
+      {% for element in elements_uncompleted %}
       <tr>
         <td>
           <a
             class="uncompleted"
-            href="https://opengeofiction.net/{{ university['@type'] }}/{{ university['@id'] }}"
-            >{{ university['@type'] }}{{ university['@id'] }}</a
+            href="https://opengeofiction.net/{{ element['@type'] }}/{{ element['@id'] }}"
+            >{{ element['@type'] }}{{ element['@id'] }}</a
           >
         </td>
         <td style="text-align: center; font-weight: bold">
-          {{ university['short_name'] }}
+          {{ element['short_name'] }}
         </td>
-        <td>{{ university['addr:province'] }}</td>
-        <td>{{ university['operator'] }}</td>
-        <td>{{ university['name'] }}</td>
-        <td>{{ university['name:en'] }}</td>
+        <td>{{ element['addr:province'] }}</td>
+        <td>{{ element['operator'] }}</td>
+        <td>{{ element['name'] }}</td>
+        <td>{{ element['name:en'] }}</td>
       </tr>
       {% endfor %}
     </table>

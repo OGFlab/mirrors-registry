@@ -18,14 +18,16 @@ def gen_pages(
 
     template = Template(template_str)
     rendered_html = template.render(
-        universities_completed=elements_completed_sorted,
-        universities_uncompleted=elements_uncompleted_sorted,
-        universities_completed_count=len(elements_completed_sorted),
-        universities_full_count=len(elements_completed_sorted)
+        elements_completed=elements_completed_sorted,
+        elements_uncompleted=elements_uncompleted_sorted,
+        elements_completed_count=len(elements_completed_sorted),
+        elements_full_count=len(elements_completed_sorted)
         + len(elements_uncompleted_sorted),
         page_title=optional_data["page_title"],
     )
-    html_file_path = "https_registry.moe.gov.hx_index.html"
+    html_file_path = (
+        "https_" + template_file_name.replace(".html", "") + "_index.html"
+    )
     with open(html_file_path, "w", encoding="utf-8") as file:
         file.write(rendered_html)
     webbrowser.open("file://" + os.path.realpath(html_file_path))
