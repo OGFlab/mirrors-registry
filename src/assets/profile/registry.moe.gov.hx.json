@@ -10,5 +10,7 @@
   ],
   "type": "[amenity=university]",
   "poly": "hx.overpassql_poly",
-  "vital_key": "short_name"
+  "vital_key": "short_name",
+  "template_file_name": "registry.moe.gov.hx.html",
+  "page_title": "MOE of Republic of Huaxia - Universities List"
 }

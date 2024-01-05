@@ -74,8 +74,6 @@ print(
 gen_pages(
     elements_completed_sorted,
     elements_uncompleted_sorted,
-    template_file_name="registry.moe.gov.hx.html",
-    optional_data={
-        "page_title": "MOE of Republic of Huaxia - Universities List"
-    },
+    template_file_name=profile["template_file_name"],
+    optional_data={"page_title": profile["optional_data"]},
 )
