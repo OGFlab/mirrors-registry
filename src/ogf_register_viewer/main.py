@@ -6,7 +6,35 @@ from method.get_plain_dataframe import (
     get_plain_dataframe,
 )
 
-elements_dataframe: List[Dict] = get_plain_dataframe()
+# elements_dataframe: List[Dict] = get_plain_dataframe(
+#     {
+#         "key": [
+#             "amenity",
+#             "name",
+#             "name:en",
+#             "short_name",
+#             "addr:province",
+#             "operators",
+#         ],
+#         "type": "[amenity=university]",
+#         "poly": "hx.overpassql_poly",
+#     }
+# )
+elements_dataframe: List[Dict] = get_plain_dataframe(
+    {
+        "key": [
+            "name",
+            "name:en",
+            "short_name",  # Because I haven't change below sort function
+            "iata",
+            "icao",
+            "addr:province",
+            "operators",
+        ],
+        "type": "[aeroway=aerodrome]",
+        "poly": "hx.overpassql_poly",
+    }
+)
 elements_full: List[Dict] = copy.deepcopy(elements_dataframe)
 elements_completed: List[Dict] = list(
     filter(
