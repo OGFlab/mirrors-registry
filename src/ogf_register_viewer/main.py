@@ -26,12 +26,7 @@ elements_uncompleted: List[Dict] = list(
                 if (item_dict["@type"], item_dict["@id"])
                 in list(
                     set([(i["@type"], i["@id"]) for i in elements_full])
-                    - set(
-                        [
-                            (i["@type"], i["@id"])
-                            for i in elements_completed
-                        ]
-                    )
+                    - set([(i["@type"], i["@id"]) for i in elements_completed])
                 )
                 else None
             )
@@ -63,4 +58,11 @@ print(
 # 2. 自动识别母体大学，合并多个校区代码不会重复出现
 # 3. 在英文名中自动识别简称可能来自的字母（首字母大写）并给出加粗该字母的建议。（可能比较困难）
 
-gen_pages(elements_completed_sorted, elements_uncompleted_sorted,"registry.moe.gov.hx.html")
+gen_pages(
+    elements_completed_sorted,
+    elements_uncompleted_sorted,
+    template_file_name="registry.moe.gov.hx.html",
+    optional_data={
+        "page_title": "MOE of Republic of Huaxia - Universities List"
+    },
+)
