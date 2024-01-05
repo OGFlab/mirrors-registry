@@ -11,7 +11,7 @@ def gen_pages(
     optional_data={},
 ):
     template_file = open(
-        "../assets/template" + template_file_name, "r", encoding="utf-8"
+        "../assets/template/" + template_file_name, "r", encoding="utf-8"
     )
     template_str = template_file.read()
     template_file.close()

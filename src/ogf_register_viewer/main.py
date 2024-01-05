@@ -40,7 +40,7 @@ elements_completed: List[Dict] = list(
     filter(
         bool,
         [
-            item_dict if item_dict["short_name"] != "" else None
+            item_dict if item_dict.get("short_name") != "" else None
             for item_dict in elements_dataframe
         ],
     )
@@ -65,7 +65,7 @@ elements_uncompleted: List[Dict] = list(
 
 elements_completed_sorted = sorted(
     elements_completed,
-    key=lambda x: (x["addr:province"], x["short_name"], x["@id"]),
+    key=lambda x: (x.get("addr:province"), x.get("short_name"), x["@id"]),
     reverse=True,
 )
 elements_uncompleted_sorted = sorted(

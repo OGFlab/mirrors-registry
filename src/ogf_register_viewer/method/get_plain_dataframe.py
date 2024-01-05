@@ -16,7 +16,7 @@ def get_plain_dataframe(query_option: dict) -> List[Dict]:
     query_option_type = query_option["type"]
     query_option_poly = query_option["poly"]
 
-    with open("../assets/poly" + query_option_poly, "r") as f:
+    with open("../assets/poly/" + query_option_poly, "r") as f:
         OVERPASS_QL_POLY = f.read()
 
     OVERPASS_QL_ENDPOINT = (
