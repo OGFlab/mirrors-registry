@@ -75,5 +75,5 @@ gen_pages(
     elements_completed_sorted,
     elements_uncompleted_sorted,
     template_file_name=profile["template_file_name"],
-    optional_data={"page_title": profile["optional_data"]},
+    optional_data={"page_title": profile["page_title"]},
 )
