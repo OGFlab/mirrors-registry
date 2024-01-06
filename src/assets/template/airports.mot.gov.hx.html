@@ -11,6 +11,15 @@
       href="https://laoshubaby.oss-cn-beijing.aliyuncs.com/static/airports.mot.gov.hx.css"
       rel="stylesheet"
     />
+    
+        <!-- Compiled and minified CSS -->
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+        <link rel="stylesheet" href="https://laoshubaby.oss-cn-beijing.aliyuncs.com/static/materialize/materialize.min.css">
+        
+        <!-- Compiled and minified JavaScript -->
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+        <script src="https://laoshubaby.oss-cn-beijing.aliyuncs.com/static/materialize/materialize.min.js"></script>
+
   </head>
   <body>
     <h1 class="header-wrapper">
@@ -28,8 +37,9 @@
     <div class="main_page">
       <div class="main_paragraph">
         <h2>Completed</h2>
-        <table>
-          <tr class="table_header">
+        <table class="striped">
+          <!-- <tr class="table_header"> -->
+          <tr>
             <th style="font-size: 16px">ID</th>
             <th>IATA</th>
             <th>ICAO</th>
@@ -38,7 +48,8 @@
             <th>名称</th>
           </tr>
           {% for element in elements_completed %}
-          <tr class="table_row">
+          <!-- <tr class="table_row"> -->
+          <tr>
             <td>
               <a
                 class="id_completed"
