@@ -22,6 +22,8 @@ def get_plain_dataframe(query_option: dict) -> List[Dict]:
     OVERPASS_QL_ENDPOINT = (
         "https://overpass.ogf.rent-a-planet.com/api/interpreter?data="
     )
+    # TODO
+    # CSV gen can be replaced with Yuheng
     OVERPASS_QL_CONTENT = """
 [out:csv(
     ::type,
