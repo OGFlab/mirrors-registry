@@ -1,19 +1,19 @@
 import copy
 import json
+import os
 from typing import Dict, List
 
 from method.gen_pages import gen_pages
-from method.get_plain_dataframe import (
-    get_plain_dataframe,
-)
+from method.get_plain_dataframe import get_plain_dataframe
 
 MULTI_PROFILE_MODE = True
 
 
 def single_run(profile_name=""):
     def get_profile(profile_name: str) -> dict:
-        # profile_name = "registry.moe.gov.hx.json"
-        profile_name = "airports.mot.gov.hx.json"
+        if profile_name == None or profile_name == "":
+            # profile_name = "registry.moe.gov.hx.json"
+            profile_name = "airports.mot.gov.hx.json"
         profile_file = open(
             "../assets/profile/" + profile_name, "r", encoding="utf-8"
         )
@@ -24,9 +24,9 @@ def single_run(profile_name=""):
     def get_elements_dataframe() -> List[Dict]:
         return get_plain_dataframe(
             {
-                "key": get_profile()["key"],
-                "type": get_profile()["type"],
-                "poly": get_profile()["poly"],
+                "key": get_profile(profile_name)["key"],
+                "type": get_profile(profile_name)["type"],
+                "poly": get_profile(profile_name)["poly"],
             }
         )
 
@@ -43,7 +43,8 @@ def single_run(profile_name=""):
                 bool,
                 [
                     item_dict
-                    if item_dict.get(get_profile()["vital_key"]) != ""
+                    if item_dict.get(get_profile(profile_name)["vital_key"])
+                    != ""
                     else None
                     for item_dict in elements_dataframe
                 ],
@@ -104,8 +105,8 @@ def single_run(profile_name=""):
     gen_pages(
         elements_completed_sorted(),
         elements_uncompleted_sorted(),
-        template_file_name=get_profile()["template_file_name"],
-        optional_data={"page_title": get_profile()["page_title"]},
+        template_file_name=get_profile(profile_name)["template_file_name"],
+        optional_data={"page_title": get_profile(profile_name)["page_title"]},
     )
 
 
@@ -113,4 +114,5 @@ if MULTI_PROFILE_MODE == False:
     single_run()
 else:
     for profile in os.listdir("../assets/profile/"):
-        single_run(profile)
+        print(profile)
+        single_run(profile_name=profile)
