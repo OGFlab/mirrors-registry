@@ -25,8 +25,11 @@ def gen_pages(
         + len(elements_uncompleted_sorted),
         page_title=optional_data["page_title"],
     )
-    html_file_path = (
+    html_file_name = (
         "https_" + template_file_name.replace(".html", "") + "_index.html"
+    )
+    html_file_path = os.path.join(
+        os.path.dirname(__file__), "..", "..", "..", "dist", html_file_name
     )
     with open(html_file_path, "w", encoding="utf-8") as file:
         file.write(rendered_html)
