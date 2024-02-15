@@ -1,0 +1,1 @@
+# this file meant to bundle all generated package and publish them to static host service
