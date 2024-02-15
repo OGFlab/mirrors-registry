@@ -6,7 +6,7 @@ from typing import Dict, List
 from method.gen_pages import gen_pages
 from method.get_plain_dataframe import get_plain_dataframe
 
-MULTI_PROFILE_MODE = True
+MODE_BATCH = True
 
 
 def single_run(profile_name=""):
@@ -110,9 +110,10 @@ def single_run(profile_name=""):
     )
 
 
-if MULTI_PROFILE_MODE == False:
+if MODE_BATCH == False:
     single_run()
 else:
     for profile in os.listdir("../assets/profile/"):
         print(profile)
         single_run(profile_name=profile)
+        os.system("python publish_bundle.py")
