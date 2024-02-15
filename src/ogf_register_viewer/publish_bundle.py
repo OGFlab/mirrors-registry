@@ -5,6 +5,8 @@ import shutil
 
 from jinja2 import Template
 
+from method.const import HOSTING
+
 # get profile list
 profiles = [
     "https_"
@@ -23,7 +25,7 @@ index_template_file = open(
 index_template = index_template_file.read()
 index_template_file.close()
 index_html = Template(index_template).render(
-    hosting_path="ogflab.zeabur.app",
+    hosting_path=HOSTING,
     profiles=profiles,
 )
 # print(index_html)
@@ -45,4 +47,4 @@ for css in assets_css_list:
 for js in assets_js_list:
     shutil.copy(src="../assets/js/" + js, dst="../../dist/js/" + js)
 for script in assets_script_list:
-    shutil.copy(src="../assets/" + script, dst="../../dist/" + script)
+    shutil.copy(src="../assets/script/" + script, dst="../../dist/" + script)

@@ -3,6 +3,8 @@ import webbrowser
 
 from jinja2 import Template
 
+from method.const import OSS
+
 
 def gen_pages(
     elements_completed_sorted,
@@ -24,6 +26,7 @@ def gen_pages(
         elements_full_count=len(elements_completed_sorted)
         + len(elements_uncompleted_sorted),
         page_title=optional_data["page_title"],
+        oss_path=OSS,
     )
     html_file_name = (
         "https_" + template_file_name.replace(".html", "") + "_index.html"

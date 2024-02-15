@@ -1,7 +1,7 @@
+import urllib.parse
 from typing import Dict, List
 
 import requests
-import urllib.parse
 
 # import loguru
 # import rich
