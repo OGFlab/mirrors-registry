@@ -29,7 +29,7 @@ def gen_pages(
         oss_path=OSS,
     )
     html_file_name = (
-        "https_" + template_file_name.replace(".html", "") + "_index.html"
+        "https_" + template_file_name.replace(".jinja2", "") + "_index.html"
     )
     html_file_path = os.path.join(
         os.path.dirname(__file__), "..", "..", "..", "dist", html_file_name

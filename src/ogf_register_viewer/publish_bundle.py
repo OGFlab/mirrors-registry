@@ -12,7 +12,7 @@ profiles = [
     "https_"
     + json.load(open("../assets/profile/" + profile, "r", encoding="utf-8"))
     .get("template_file_name")
-    .replace(".html", "")
+    .replace(".jinja2", "")
     + "_index.html"
     for profile in os.listdir("../assets/profile/")
 ]
@@ -20,7 +20,7 @@ profiles = [
 
 # gen index html
 index_template_file = open(
-    "../assets/template/" + "_index.html", "r", encoding="utf-8"
+    "../assets/template/" + "_index.jinja2", "r", encoding="utf-8"
 )
 index_template = index_template_file.read()
 index_template_file.close()

@@ -11,6 +11,6 @@
   "type": "[aeroway=aerodrome]",
   "poly": "hx.overpassql_poly",
   "vital_key": "iata",
-  "template_file_name": "airports.mot.gov.hx.html",
+  "template_file_name": "airports.mot.gov.hx.jinja2",
   "page_title": "MOT of Republic of Huaxia - Airports List"
 }
