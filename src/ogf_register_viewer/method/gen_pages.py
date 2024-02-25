@@ -1,5 +1,7 @@
 import os
 import webbrowser
+from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 
 from jinja2 import Template
 
@@ -27,6 +29,7 @@ def gen_pages(
         + len(elements_uncompleted_sorted),
         page_title=optional_data["page_title"],
         oss_path=OSS,
+        gen_time=datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(),
     )
     html_file_name = (
         "https_" + template_file_name.replace(".jinja2", "") + "_index.html"

@@ -1,14 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-    <head>
-        <title>IDK</title>
-    </head>
-    <body>
-        You should visit:<br/>
-        <ul>
-            {% for profile_html_name in profiles %}
-            <li><a href="https://{{hosting_path}}/{{profile_html_name}}">{{profile_html_name}}</a></li>
-            {% endfor %}
-        </ul>
-    </body>
+  <head>
+    <title>IDK</title>
+  </head>
+  <body>
+    <div style="font-size: 32px">
+      <b>You should visit:</b>
+      <br />
+      <ul>
+        {% for profile_html_name in profiles %}
+        <li>
+          <a href="https://{{hosting_path}}/{{profile_html_name}}"
+            >{{profile_html_name}}</a
+          >
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <br />
+    <div style="font-size: 10px">{{gen_time}}</div>
+  </body>
 </html>

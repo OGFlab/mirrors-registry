@@ -2,6 +2,8 @@
 import json
 import os
 import shutil
+from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 
 from jinja2 import Template
 
@@ -27,6 +29,7 @@ index_template_file.close()
 index_html = Template(index_template).render(
     hosting_path=HOSTING,
     profiles=profiles,
+    gen_time=datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(),
 )
 # print(index_html)
 
