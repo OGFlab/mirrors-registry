@@ -1,1 +1,1 @@
-zeabur
+npx @zeabur/cli deploy
