@@ -1,0 +1,18 @@
+{
+  "id": "registry.moe.gov.hx",
+  "key": [
+    "amenity",
+    "name",
+    "name:en",
+    "ref",
+    "short_name",
+    "addr:province",
+    "operators",
+    "motto"
+  ],
+  "type": "[amenity=university]",
+  "poly": "hx.overpassql_poly",
+  "vital_key": "short_name",
+  "template_file_name": "motto.moe.gov.hx.jinja2",
+  "page_title": "MOE of Republic of Huaxia - Universities List"
+}

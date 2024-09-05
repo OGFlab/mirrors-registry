@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ page_title }}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      href="https://{{oss_path}}/css/registry.moe.gov.hx.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <h1>
+      {{ page_title }} (Completed Count: {{ elements_completed_count }}/{{
+      elements_full_count }})
+      <br/>
+      <span style="font-size: 12px">{{ gen_time }}</span>
+    </h1>
+    <h2>Completed</h2>
+    <table>
+      <tr>
+        <th style="font-size: 16px">ID</th>
+        <th>简称<br /><code>short_name</code></th>
+        <th>省份<br /><code>addr:province</code></th>
+        <th>运营者<br /><code>operator</code></th>
+        <th>中英文名<br /><code style="text-align: left;">name<br/>name:en</code></th>
+        <th>校训<br /><code>motto</code></th>
+      </tr>
+      {% for element in elements_completed %}
+      <tr>
+        <td>
+          <a
+            class="completed"
+            href="https://opengeofiction.net/{{ element['@type'] }}/{{ element['@id'] }}"
+            >{{ element['@type'] }}{{ element['@id'] }}</a
+          >
+        </td>
+        <td style="text-align: center; font-weight: bold">
+          {{ element['short_name'] }}
+        </td>
+        <td>{{ element['addr:province'] }}</td>
+        <td>{{ element['operator'] }}</td>
+        <td>{{ element['name'] }}<br/>{{ element['name:en'] }}</td>
+        <td>{{ element['motto'] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <hr />
+    <h2>Uncompleted</h2>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>简称<br /><code>short_name</code></th>
+        <th>省份<br /><code>addr:province</code></th>
+        <th>运营者<br /><code>operator</code></th>
+        <th>中英文名<br /><code style="text-align: left;">name<br/>name:en</code></th>
+        <th>校训<br /><code>motto</code></th>
+      </tr>
+      {% for element in elements_uncompleted %}
+      <tr>
+        <td>
+          <a
+            class="uncompleted"
+            href="https://opengeofiction.net/{{ element['@type'] }}/{{ element['@id'] }}"
+            >{{ element['@type'] }}{{ element['@id'] }}</a
+          >
+        </td>
+        <td style="text-align: center; font-weight: bold">
+          {{ element['short_name'] }}
+        </td>
+        <td>{{ element['addr:province'] }}</td>
+        <td>{{ element['operator'] }}</td>
+        <td>{{ element['name'] }}<br/>{{ element['name:en'] }}</td>
+        <td>{{ element['motto'] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>
