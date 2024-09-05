@@ -113,7 +113,15 @@ def single_run(profile_name=""):
 if MODE_BATCH == False:
     single_run()
 else:
-    for profile in os.listdir("../assets/profile/"):
+    for profile in list(
+        filter(
+            bool,
+            [
+                i if i[0] != "_" else ""
+                for i in os.listdir("../assets/profile/")
+            ],
+        )
+    ):
         print(profile)
         single_run(profile_name=profile)
         os.system("python publish_bundle.py")
