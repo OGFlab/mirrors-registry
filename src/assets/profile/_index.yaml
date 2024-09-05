@@ -1,0 +1,11 @@
+ogf:
+  .hx:
+    .gov:
+      .moe:
+        .registry:
+          - name: "教育部大学注册表"
+        .motto:
+          - name: "教育部校训注册表"
+      .mot:
+        .airports:
+          - name: "交通运输部机场注册表"
