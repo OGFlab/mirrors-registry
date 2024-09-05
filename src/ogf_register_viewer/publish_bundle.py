@@ -16,7 +16,15 @@ profiles = [
     .get("template_file_name")
     .replace(".jinja2", "")
     + "_index.html"
-    for profile in os.listdir("../assets/profile/")
+    for profile in list(
+        filter(
+            bool,
+            [
+                profile if profile[0] != "_" else ""
+                for profile in os.listdir("../assets/profile/")
+            ],
+        )
+    )
 ]
 # print(profiles)
 

@@ -117,8 +117,8 @@ else:
         filter(
             bool,
             [
-                i if i[0] != "_" else ""
-                for i in os.listdir("../assets/profile/")
+                profile if profile[0] != "_" else ""
+                for profile in os.listdir("../assets/profile/")
             ],
         )
     ):
