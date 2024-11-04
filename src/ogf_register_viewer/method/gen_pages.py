@@ -7,6 +7,21 @@ from jinja2 import Template
 
 from method.const import OSS
 
+from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
+
+from tzlocal import get_localzone
+
+def get_environment_description()->str:
+    import platform
+
+    return f"{platform.node()} ({platform.platform()} @ {platform.processor()};{platform.python_implementation()} {platform.python_build()[0]})"
+
+def get_local_timezone():
+    try:
+        return ZoneInfo(str(get_localzone()))
+    except Exception:
+        return ZoneInfo("UTC")
 
 def gen_pages(
     elements_completed_sorted,
@@ -29,7 +44,8 @@ def gen_pages(
         + len(elements_uncompleted_sorted),
         page_title=optional_data["page_title"],
         oss_path=OSS,
-        gen_time=datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(),
+        gen_time=datetime.now(get_local_timezone()).isoformat(),
+
     )
     html_file_name = (
         "https_" + template_file_name.replace(".jinja2", "") + "_index.html"
