@@ -9,6 +9,7 @@ from method.get_plain_dataframe import get_plain_dataframe
 FEATURE_BATCH = False
 FEATURE_LANG_SORT = True
 
+
 def single_run(profile_name=""):
     def get_profile(profile_name: str) -> dict:
         if profile_name == None or profile_name == "":
@@ -42,10 +43,14 @@ def single_run(profile_name=""):
             filter(
                 bool,
                 [
-                    item_dict
-                    if item_dict.get(get_profile(profile_name)["vital_key"])
-                    != ""
-                    else None
+                    (
+                        item_dict
+                        if item_dict.get(
+                            get_profile(profile_name)["vital_key"]
+                        )
+                        != ""
+                        else None
+                    )
                     for item_dict in elements_dataframe
                 ],
             )
@@ -80,6 +85,28 @@ def single_run(profile_name=""):
             )
         )
 
+    def detect_langid(working_data: List[dict]) -> List[dict]:
+        # print("FEATURE_LANG_SORT")
+        from langdetect import detect
+
+        pure_name_list = [
+            i.get("name") if i.get("name") != "" else "暂无"
+            for i in working_data
+        ]
+        for i in range(len(pure_name_list)):
+            pure_name_list[i] = detect(pure_name_list[i])
+        extend_element_completed = []
+        normal_elements_completed = working_data
+        for i in range(len(normal_elements_completed)):
+            new_item = normal_elements_completed[i]
+            new_item["@langid"] = pure_name_list[i]
+            # print(new_item)
+            extend_element_completed.append(new_item)
+        # from pprint import pprint
+        # pprint(extend_element_completed)
+
+        return extend_element_completed
+
     def elements_completed_sorted():
 
         if FEATURE_LANG_SORT == False:
@@ -93,37 +120,28 @@ def single_run(profile_name=""):
                 reverse=True,
             )
         else:
-            # print("FEATURE_LANG_SORT")
-            from langdetect import detect
-
-            pure_name_list=[i.get("name") if i.get("name")!="" else "暂无" for i in elements_uncompleted()]
-            for i in range(len(pure_name_list)):
-                pure_name_list[i] = detect(pure_name_list[i])
-            extend_element_completed=[]
-            normal_elements_completed = elements_uncompleted()
-            for i in range(len(normal_elements_completed)):
-                new_item=normal_elements_completed[i]
-                new_item["@langid"]=pure_name_list[i]
-                print(new_item)
-                extend_element_completed.append(new_item)
-            from pprint import pprint
-            pprint(extend_element_completed)
-
-            exit(0)
-
             return sorted(
-                elements_completed(),
+                detect_langid(elements_completed()),
                 key=lambda x: (
-                    x.get("@langid","ja"),
+                    x.get("@langid", "ja"),
                     x.get("addr:province"),
                     x.get("short_name"),
                     x["@id"],
                 ),
                 reverse=True,
-            )  
+            )
 
     def elements_uncompleted_sorted():
-        return sorted(elements_uncompleted(), key=lambda x: x["@id"])
+        if FEATURE_LANG_SORT == False:
+            return sorted(elements_uncompleted(), key=lambda x: x["@id"])
+        else:
+            return sorted(
+                detect_langid(elements_uncompleted()),
+                key=lambda x: (
+                    x.get("@langid", "ja"),
+                    x["@id"],
+                ),
+            )
 
     print(
         len(elements_completed_sorted()),
