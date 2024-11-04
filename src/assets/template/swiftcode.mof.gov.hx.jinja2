@@ -22,11 +22,10 @@
     <table>
       <tr>
         <th style="font-size: 16px">ID</th>
-        <th>简称<br /><code>short_name</code></th>
-        <th>省份<br /><code>addr:province</code></th>
-        <th>运营者<br /><code>operator</code></th>
         <th>中文名<br /><code>name</code></th>
         <th>英文名<br /><code>name:en</code></th>
+        <th>简称<br /><code>ref:swift</code></th>
+        <th>省份<br /><code>addr:province</code></th>
       </tr>
       {% for element in elements_completed %}
       <tr>
@@ -37,13 +36,12 @@
             >{{ element['@type'] }}{{ element['@id'] }}</a
           >
         </td>
-        <td style="text-align: center; font-weight: bold">
-          {{ element['short_name'] }}
-        </td>
-        <td>{{ element['addr:province'] }}</td>
-        <td>{{ element['operator'] }}</td>
         <td>{{ element['name'] }}</td>
         <td>{{ element['name:en'] }}</td>
+        <td style="text-align: center; font-weight: bold">
+          {{ element['ref:swift'] }}
+        </td>
+        <td>{{ element['addr:province'] }}</td>
       </tr>
       {% endfor %}
     </table>
@@ -52,11 +50,10 @@
     <table>
       <tr>
         <th>ID</th>
-        <th>简称<br /><code>short_name</code></th>
-        <th>省份<br /><code>addr:province</code></th>
-        <th>运营者<br /><code>operator</code></th>
         <th>中文名<br /><code>name</code></th>
         <th>英文名<br /><code>name:en</code></th>
+        <th>简称<br /><code>ref:swift</code></th>
+        <th>省份<br /><code>addr:province</code></th>
       </tr>
       {% for element in elements_uncompleted %}
       <tr>
@@ -67,13 +64,12 @@
             >{{ element['@type'] }}{{ element['@id'] }}</a
           >
         </td>
-        <td style="text-align: center; font-weight: bold">
-          {{ element['short_name'] }}
-        </td>
-        <td>{{ element['addr:province'] }}</td>
-        <td>{{ element['operator'] }}</td>
         <td>{{ element['name'] }}</td>
         <td>{{ element['name:en'] }}</td>
+        <td style="text-align: center; font-weight: bold">
+          {{ element['ref:swift'] }}
+        </td>
+        <td>{{ element['addr:province'] }}</td>
       </tr>
       {% endfor %}
     </table>

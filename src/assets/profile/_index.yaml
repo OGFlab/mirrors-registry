@@ -9,3 +9,6 @@ ogf:
       .mot:
         .airports:
           - name: "交通运输部机场注册表"
+      .mof:
+        .swiftcode:
+          - name: "财政部银保监会swiftcode交换信息"
