@@ -6,14 +6,14 @@ from typing import Dict, List
 from method.gen_pages import gen_pages
 from method.get_plain_dataframe import get_plain_dataframe
 
-MODE_BATCH = True
-
+FEATURE_BATCH = False
+FEATURE_LANG_SORT = True
 
 def single_run(profile_name=""):
     def get_profile(profile_name: str) -> dict:
         if profile_name == None or profile_name == "":
             # profile_name = "registry.moe.gov.hx.json"
-            profile_name = "airports.mot.gov.hx.json"
+            profile_name = "swiftcode.mof.gov.hx.json"
         profile_file = open(
             "../assets/profile/" + profile_name, "r", encoding="utf-8"
         )
@@ -81,15 +81,33 @@ def single_run(profile_name=""):
         )
 
     def elements_completed_sorted():
-        return sorted(
-            elements_completed(),
-            key=lambda x: (
-                x.get("addr:province"),
-                x.get("short_name"),
-                x["@id"],
-            ),
-            reverse=True,
-        )
+
+        if FEATURE_LANG_SORT == False:
+            return sorted(
+                elements_completed(),
+                key=lambda x: (
+                    x.get("addr:province"),
+                    x.get("short_name"),
+                    x["@id"],
+                ),
+                reverse=True,
+            )
+        else:
+            print("FEATURE_LANG_SORT")
+            from langdetect import detect
+
+            print([detect(i.get("name")) for i in elements_uncompleted()])
+
+            return sorted(
+                elements_completed(),
+                key=lambda x: (
+                    detect(x.get("name")),
+                    x.get("addr:province"),
+                    x.get("short_name"),
+                    x["@id"],
+                ),
+                reverse=True,
+            )  
 
     def elements_uncompleted_sorted():
         return sorted(elements_uncompleted(), key=lambda x: x["@id"])
@@ -110,7 +128,7 @@ def single_run(profile_name=""):
     )
 
 
-if MODE_BATCH == False:
+if FEATURE_BATCH == False:
     single_run()
 else:
     for profile in list(
