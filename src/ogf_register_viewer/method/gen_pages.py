@@ -45,7 +45,8 @@ def gen_pages(
         page_title=optional_data["page_title"],
         oss_path=OSS,
         gen_time=datetime.now(get_local_timezone()).isoformat(),
-
+        meta_local_timezone=get_local_timezone(),
+        meta_build_machine=get_environment_description()
     )
     html_file_name = (
         "https_" + template_file_name.replace(".jinja2", "") + "_index.html"
