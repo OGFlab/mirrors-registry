@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <title>IDK</title>
+    <style>
+        .link-block {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+            margin-left: {{ profile.depth * 20 }}px; /* 用于表示层级的缩进 */
+        }
+        /* 添加额外的CSS样式来处理折叠和展开，这部分需要你根据具体的前端框架或库来编写 */
+    </style>
+</head>
+<body>
+<div style="font-size: 32px">
+    <b>You should visit:</b>
+    <br />
+    <ul>
+        {% for profile in profiles %}
+        <li>
+            <div class="link-block">
+                <a href="{{ profile.url }}">{{ profile.name }}</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<br />
+<div style="font-size: 10px">{{ gen_time }}</div>
+
+<!-- 添加额外的JavaScript来处理折叠和展开 -->
+<script>
+    // 这里是用于处理折叠和展开的JavaScript代码
+</script>
+</body>
+</html>
