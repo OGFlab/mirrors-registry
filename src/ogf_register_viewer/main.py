@@ -93,15 +93,28 @@ def single_run(profile_name=""):
                 reverse=True,
             )
         else:
-            print("FEATURE_LANG_SORT")
+            # print("FEATURE_LANG_SORT")
             from langdetect import detect
 
-            print([detect(i.get("name")) for i in elements_uncompleted()])
+            pure_name_list=[i.get("name") if i.get("name")!="" else "暂无" for i in elements_uncompleted()]
+            for i in range(len(pure_name_list)):
+                pure_name_list[i] = detect(pure_name_list[i])
+            extend_element_completed=[]
+            normal_elements_completed = elements_uncompleted()
+            for i in range(len(normal_elements_completed)):
+                new_item=normal_elements_completed[i]
+                new_item["@langid"]=pure_name_list[i]
+                print(new_item)
+                extend_element_completed.append(new_item)
+            from pprint import pprint
+            pprint(extend_element_completed)
+
+            exit(0)
 
             return sorted(
                 elements_completed(),
                 key=lambda x: (
-                    detect(x.get("name")),
+                    x.get("@langid","ja"),
                     x.get("addr:province"),
                     x.get("short_name"),
                     x["@id"],
