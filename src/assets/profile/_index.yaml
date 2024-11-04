@@ -4,11 +4,15 @@ ogf:
       .moe:
         .registry:
           - name: "教育部大学注册表"
+          - profile: "registry.moe.gov.hx.json"
         .motto:
           - name: "教育部校训注册表"
+          - profile: "motto.moe.gov.hx.json"
       .mot:
         .airports:
           - name: "交通运输部机场注册表"
+          - profile: "airports.mot.gov.hx.json"
       .mof:
         .swiftcode:
           - name: "财政部银保监会swiftcode交换信息"
+          - profile: "swiftcode.mof.gov.hx.json"
