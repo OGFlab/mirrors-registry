@@ -1,0 +1,13 @@
+{
+  "id": "mno.miit.gov.hx",
+  "key": [
+    "name",
+    "name:en",
+    "brand"
+  ],
+  "type": "[office=telecommunication]",
+  "poly": "hx.overpassql_poly",
+  "vital_key": "name",
+  "template_file_name": "airports.mot.gov.hx.jinja2",
+  "page_title": "Huaxia MNO & MVNO Operator List"
+}

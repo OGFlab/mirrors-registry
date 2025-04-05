@@ -20,7 +20,7 @@ def get_plain_dataframe(query_option: dict) -> List[Dict]:
         OVERPASS_QL_POLY = f.read()
 
     OVERPASS_QL_ENDPOINT = (
-        "https://overpass.ogf.rent-a-planet.com/api/interpreter?data="
+        "https://overpass.opengeofiction.net/api//interpreter?data="
     )
     # TODO
     # CSV gen can be replaced with Yuheng
