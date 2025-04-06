@@ -4,13 +4,10 @@ from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
 from jinja2 import Template
+from tzlocal import get_localzone
 
 from method.const import OSS
 
-from datetime import datetime, timezone
-from zoneinfo import ZoneInfo
-
-from tzlocal import get_localzone
 
 def get_environment_description()->str:
     import platform
@@ -51,7 +48,7 @@ def gen_pages(
         gen_time=datetime.now(get_local_timezone()).isoformat(),
         meta_local_timezone=get_local_timezone(),
         meta_build_machine=get_environment_description(),
-        clustered_data=clustered_data
+        clustered_data=clustered_data.replace("\n","<br/>")
     )
     html_file_name = (
         "https_" + template_file_name.replace(".jinja2", "") + "_index.html"
