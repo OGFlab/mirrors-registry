@@ -10,7 +10,7 @@ FEATURE_BATCH = False
 FEATURE_LANG_SORT = True
 
 
-def single_run(profile_name=""):
+def single_run(profile_name="", clustering:bool=True):
     def get_profile(profile_name: str) -> dict:
         if profile_name == None or profile_name == "":
             # profile_name = "registry.moe.gov.hx.json"
@@ -142,6 +142,12 @@ def single_run(profile_name=""):
                     x["@id"],
                 ),
             )
+        
+    def get_clustering()->List[str]:
+        full_data=elements_full()
+        clustered_data=set([slice.get("name","None") for slice in full_data])
+        return list(clustered_data)
+        
 
     print(
         len(elements_completed_sorted()),
@@ -151,13 +157,21 @@ def single_run(profile_name=""):
         len(elements_full()),
     )
 
-    gen_pages(
-        elements_completed_sorted(),
-        elements_uncompleted_sorted(),
-        template_file_name=get_profile(profile_name)["template_file_name"],
-        optional_data={"page_title": get_profile(profile_name)["page_title"]},
-    )
-
+    if clustering:
+        gen_pages(
+            elements_completed_sorted(),
+            elements_uncompleted_sorted(),
+            template_file_name=get_profile(profile_name)["template_file_name"],
+            optional_data={"page_title": get_profile(profile_name)["page_title"],"clustered_data":get_clustering()},
+        
+        )
+    else:
+        gen_pages(
+            elements_completed_sorted(),
+            elements_uncompleted_sorted(),
+            template_file_name=get_profile(profile_name)["template_file_name"],
+            optional_data={"page_title": get_profile(profile_name)["page_title"]},
+        )
 
 if FEATURE_BATCH == False:
     single_run()

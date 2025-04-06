@@ -46,13 +46,19 @@ out meta asc;
 
     OVERPASS_QL_URL = OVERPASS_QL_ENDPOINT + urllib.parse.quote(OVERPASS_QL)
 
-    query_result = requests.get(
-        url=OVERPASS_QL_URL,
-        headers={
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0",
-            "Referer": "https://registry.moe.gov.hx/index.html",
-        },
-    ).content.decode("utf-8")
+    try:
+        query_result = requests.get(
+            url=OVERPASS_QL_URL,
+            headers={
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0",
+                "Referer": "https://registry.moe.gov.hx/index.html",
+            },
+        ).content.decode("utf-8")
+    except Exception as e:
+        print(e)
+        print(OVERPASS_QL)
+        print(OVERPASS_QL_URL)
+        exit()
 
     # print(OVERPASS_QL)
     # print(OVERPASS_QL_URL)

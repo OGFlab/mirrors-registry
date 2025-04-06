@@ -36,6 +36,10 @@ def gen_pages(
     template_file.close()
 
     template = Template(template_str)
+    if optional_data.get("clustered_data",None) !=None:
+        clustered_data=optional_data["clustered_data"]
+    else:
+        clustered_data=""
     rendered_html = template.render(
         elements_completed=elements_completed_sorted,
         elements_uncompleted=elements_uncompleted_sorted,
@@ -46,7 +50,8 @@ def gen_pages(
         oss_path=OSS,
         gen_time=datetime.now(get_local_timezone()).isoformat(),
         meta_local_timezone=get_local_timezone(),
-        meta_build_machine=get_environment_description()
+        meta_build_machine=get_environment_description(),
+        clustered_data=clustered_data
     )
     html_file_name = (
         "https_" + template_file_name.replace(".jinja2", "") + "_index.html"
