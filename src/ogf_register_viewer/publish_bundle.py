@@ -9,6 +9,13 @@ from jinja2 import Template
 
 from method.const import HOSTING
 
+def get_local_timezone():
+    from tzlocal import get_localzone
+    try:
+        return ZoneInfo(str(get_localzone()))
+    except Exception:
+        return ZoneInfo("UTC")
+
 # get profile list
 profiles = [
     "https_"
@@ -37,7 +44,7 @@ index_template_file.close()
 index_html = Template(index_template).render(
     hosting_path=HOSTING,
     profiles=profiles,
-    gen_time=datetime.now(ZoneInfo("Asia/Shanghai")).isoformat(),
+    gen_time=datetime.now(get_local_timezone()).isoformat(),
 )
 # print(index_html)
 

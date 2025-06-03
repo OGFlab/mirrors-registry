@@ -16,3 +16,7 @@ ogf:
         .swiftcode:
           - name: "财政部银保监会swiftcode交换信息"
           - profile: "swiftcode.mof.gov.hx.json"
+
+# 水表区注册表
+# 橘子注册表
+# 公交铁路路线注册表、运营网络注册表

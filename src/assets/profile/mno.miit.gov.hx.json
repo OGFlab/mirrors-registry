@@ -8,7 +8,7 @@
   "type": "[office=telecommunication]",
   "poly": "hx.overpassql_poly",
   "vital_key": "name",
-  "template_file_name": "swiftcode.mof.gov.hx.jinja2",
+  "template_file_name": "mno.miit.gov.hx.jinja2",
   "page_title": "Huaxia MNO & MVNO Operator List",
   "clustering": true
 }
