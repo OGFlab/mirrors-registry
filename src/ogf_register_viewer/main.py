@@ -90,9 +90,14 @@ def single_run(profile_name="", clustering: bool = False):
         from langdetect import detect
 
         pure_name_list = [
-            i.get("name") if i.get("name") != "" else "暂无"
+            (
+                i.get("name")
+                if (i.get("name") != "" and i.get("name") != None)
+                else "暂无"
+            )
             for i in working_data
         ]
+        print(pure_name_list)
         for i in range(len(pure_name_list)):
             pure_name_list[i] = detect(pure_name_list[i])
         extend_element_completed = []
