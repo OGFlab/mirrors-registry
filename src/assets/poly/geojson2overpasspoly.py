@@ -41,3 +41,6 @@ with open("output.overpassql_poly", "w", encoding="utf-8") as f:
 
 # </body>
 # </html>
+
+# todo: 未来要抛弃poly文件或者伪poly文件的工作流，直接给予osm文件或者geojson文件，直接生成overpass的特有poly
+# todo: 这样的时候就可以做多区域支持了，需要写两条查询然后在overpass内合并。需要检测一下geojson里面是单区域还是多区域，适用于有海外领地的国家。
