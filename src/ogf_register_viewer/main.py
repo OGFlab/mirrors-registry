@@ -173,7 +173,8 @@ def single_run(profile_name="", clustering: bool = False):
         len(elements_full()),
     )
 
-    if clustering:
+    if get_profile(profile_name).get("clustering", False):
+        # print("☆" * 10, "\n", get_clustering(), "\n", "★" * 10)
         gen_pages(
             elements_completed_sorted(),
             elements_uncompleted_sorted(),
