@@ -1,0 +1,13 @@
+{
+  "id": "post.miit.gov.hx",
+  "key": [
+    "name",
+    "name:en",
+    "branch"
+  ],
+  "type": "[amenity=post_office]",
+  "poly": "hx.overpassql_poly",
+  "vital_key": "name",
+  "template_file_name": "post.miit.gov.hx.jinja2",
+  "page_title": "华夏邮政邮局早见表",
+}
