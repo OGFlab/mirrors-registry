@@ -1,5 +1,5 @@
 {
-  "id": "registry.moce.gov.hx",
+  "id": "motto.moce.gov.hx",
   "key": [
     "amenity",
     "name",
@@ -14,5 +14,5 @@
   "poly": "hx.overpassql_poly",
   "vital_key": "short_name",
   "template_file_name": "motto.moe.gov.hx.jinja2",
-  "page_title": "Universities' motto overview - MOE"
+  "page_title": "Universities' motto overview - MOCE"
 }
