@@ -1,5 +1,5 @@
 {
-  "id": "registry.moe.gov.hx",
+  "id": "college.registry.moe.gov.hx",
   "key": [
     "amenity",
     "name",
@@ -8,7 +8,7 @@
     "addr:province",
     "operators"
   ],
-  "type": "[amenity=university]",
+  "type": "[amenity=college]",
   "poly": "hx.overpassql_poly",
   "vital_key": "short_name",
   "template_file_name": "registry.moe.gov.hx.jinja2",
