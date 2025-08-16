@@ -1,0 +1,6 @@
+# 标记后台模板文件为文档，不参与语言统计
+# web/templates/indexback.html linguist-documentation
+# web/templates/index_2.html linguist-documentation
+
+src/assets/template/_index.jinja2 linguist-documentation
+*.jinja2 linguist-documentation
