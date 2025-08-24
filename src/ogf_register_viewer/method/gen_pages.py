@@ -24,6 +24,7 @@ def gen_pages(
     elements_completed_sorted,
     elements_uncompleted_sorted,
     template_file_name: str,
+    dst_file_name:str, 
     optional_data={},
 ):
     template_file = open(
@@ -51,7 +52,7 @@ def gen_pages(
         clustered_data=clustered_data.replace("\n","<br/>")
     )
     html_file_name = (
-        "https_" + template_file_name.replace(".jinja2", "") + "_index.html"
+        "https_" + dst_file_name + "_index.html"
     )
     html_file_path = os.path.join(
         os.path.dirname(__file__), "..", "..", "..", "dist", html_file_name

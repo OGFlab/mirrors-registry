@@ -11,7 +11,7 @@
   "type": "[amenity=bank]",
   "poly": "hx.overpassql_poly",
   "vital_key": "ref:swift",
-  "template_file_name": "swiftcode.mof.gov.hx.jinja2",
+  "template_file_name": "hx.gov.mof.registry.swiftcode.jinja2",
   "page_title": "财政部与银保监会关于各银行Swiftcode分配情况的公示(含支行)",
   "clustering": true
 }

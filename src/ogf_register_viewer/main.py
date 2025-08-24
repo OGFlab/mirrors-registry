@@ -6,15 +6,14 @@ from typing import Dict, List
 from method.gen_pages import gen_pages
 from method.get_plain_dataframe import get_plain_dataframe
 
-FEATURE_BATCH = False
+FEATURE_BATCH = True
 FEATURE_LANG_SORT = True
 
 
 def single_run(profile_name="", clustering: bool = False):
     def get_profile(profile_name: str) -> dict:
         if profile_name == None or profile_name == "":
-            # profile_name = "registry.moe.gov.hx.json"
-            profile_name = "swiftcode.mof.gov.hx.json"
+            profile_name = "youshouldinputavalidprofile.json"
         profile_file = open(
             "../assets/profile/" + profile_name, "r", encoding="utf-8"
         )
@@ -179,6 +178,7 @@ def single_run(profile_name="", clustering: bool = False):
             elements_completed_sorted(),
             elements_uncompleted_sorted(),
             template_file_name=get_profile(profile_name)["template_file_name"],
+            dst_file_name=get_profile(profile_name)["id"],
             optional_data={
                 "page_title": get_profile(profile_name)["page_title"],
                 "clustered_data": get_clustering(),
@@ -189,6 +189,7 @@ def single_run(profile_name="", clustering: bool = False):
             elements_completed_sorted(),
             elements_uncompleted_sorted(),
             template_file_name=get_profile(profile_name)["template_file_name"],
+            dst_file_name=get_profile(profile_name)["id"],
             optional_data={
                 "page_title": get_profile(profile_name)["page_title"]
             },
