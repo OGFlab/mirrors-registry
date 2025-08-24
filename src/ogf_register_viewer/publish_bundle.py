@@ -20,9 +20,13 @@ def get_local_timezone():
 profiles = [
     "https_"
     + json.load(open("../assets/profile/" + profile, "r", encoding="utf-8"))
-    .get("template_file_name")
+    .get("id")
     .replace(".jinja2", "")
     + "_index.html"
+
+    # ↓ 需要在这里排除一下profile文件夹里面的index和readme
+    # 今天没时间了下次一定
+
     for profile in list(
         filter(
             bool,

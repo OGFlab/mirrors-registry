@@ -199,6 +199,9 @@ def single_run(profile_name="", clustering: bool = False):
 if FEATURE_BATCH == False:
     single_run()
 else:
+    ignore_filename_list=[
+        "_index.yaml", "README.md"
+    ]
     for profile in list(
         filter(
             bool,
@@ -208,6 +211,8 @@ else:
             ],
         )
     ):
+        
         print(profile)
-        single_run(profile_name=profile)
-        os.system("python publish_bundle.py")
+        if profile not in ignore_filename_list:
+            single_run(profile_name=profile)
+            os.system("python publish_bundle.py")
