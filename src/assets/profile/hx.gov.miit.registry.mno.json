@@ -5,6 +5,7 @@
     "type": "[office=telecommunication]",
     "poly": "hx.overpassql_poly",
     "vital_key": ["name"],
+    "sort_key": ["@langid", "name", "addr:province", "@id"],
     "clustering": true
   },
   "page": {

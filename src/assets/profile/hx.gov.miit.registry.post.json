@@ -11,7 +11,13 @@
     "type": "[amenity=post_office]",
     "poly": "hx.overpassql_poly",
     "vital_key": ["name", "branch"],
-    "sort_key": ["@langid", "name", "addr:province", "type:post_office:HX"]
+    "sort_key": [
+      "@langid",
+      "name",
+      "addr:province",
+      "type:post_office:HX",
+      "@id"
+    ]
   },
   "page": {
     "template": "hx.gov.miit.registry.post.jinja2",

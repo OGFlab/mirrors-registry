@@ -11,7 +11,7 @@
     ],
     "type": "[amenity=bank]",
     "poly": "hx.overpassql_poly",
-    "vital_key": ["ref:swift"],
+    "vital_key": ["ref:swift"],"sort_key": ["@langid", "name", "@id"],
     "clustering": true
   },
   "page": {

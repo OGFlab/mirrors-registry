@@ -132,24 +132,13 @@ def single_run(profile_name="", clustering: bool = False):
             if "@langid" in get_sort_order()
             else elements_unsorted
         )
-
-        # return sorted(
-        #         elements_to_sort,
-        #         key=lambda x: (
-        #             x.get("@langid", default_sort_lang),
-        #             x.get("name"),
-        #             x.get("addr:province"),
-        #             x.get("short_name"),
-        #             x["@id"],
-        #         ),
-        #         reverse=True,
-        #     )
+        
         return sorted(
             elements_to_sort,
             key=lambda x: tuple(
                 list(
                     [x.get("@langid", default_sort_lang)]
-                    + [x.get(key) for key in elements_to_sort]
+                    + [x.get(key) for key in get_sort_order()]
                 )
             ),
             reverse=True,

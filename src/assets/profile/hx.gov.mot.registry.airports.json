@@ -4,7 +4,7 @@
     "key": ["name", "name:en", "iata", "icao", "waat", "anaca"],
     "type": "[aeroway=aerodrome]",
     "poly": "hx.overpassql_poly",
-    "vital_key": ["iata"]
+    "vital_key": ["iata"],"sort_key": ["@langid", "name", "@id"],
   },
   "page": {
     "template": "hx.gov.mot.registry.airports.jinja2",
