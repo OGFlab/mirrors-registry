@@ -1,5 +1,12 @@
 {
   "id": "post.miit.gov.hx",
+    "data": {
+    "key": ["name", "name:en", "brand"],
+    "type": "[office=telecommunication]",
+    "poly": "hx.overpassql_poly",
+    "vital_key": ["name"],
+    "clustering": true
+  },
   "key": [
     "name",
     "name:en",
