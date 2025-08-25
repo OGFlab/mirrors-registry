@@ -11,8 +11,8 @@
     ],
     "type": "[amenity=college]",
     "poly": "hx.overpassql_poly",
-    "vital_key": ["short_name"],    "sort_key": ["@langid", "name", "addr:province", "short_name","@id"]
-
+    "vital_key": ["short_name"],
+    "sort_key": ["@langid", "name", "addr:province", "short_name", "@id"]
   },
   "page": {
     "template": "hx.gov.moce.registry.school-type.jinja2",

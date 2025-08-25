@@ -21,6 +21,7 @@
   },
   "page": {
     "template": "hx.gov.miit.registry.post.jinja2",
-    "title": "华夏邮政邮局早见表"
+    "title": "华夏邮政料金早见表",
+    "map": "enable"
   }
 }
