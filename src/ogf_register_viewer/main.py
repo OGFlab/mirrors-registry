@@ -8,8 +8,6 @@ from method.gen_pages import gen_pages
 from method.get_plain_dataframe import get_plain_dataframe
 
 FEATURE_BATCH = False
-FEATURE_LANG_SORT = True
-
 
 def single_run(profile_name="", clustering: bool = False):
     def get_profile(profile_name: str) -> dict:
@@ -122,86 +120,46 @@ def single_run(profile_name="", clustering: bool = False):
         # pprint(extend_element_completed)
 
         return extend_element_completed
-    
-    def get_sort_order()->List[str]:
-        return get_profile(profile_name)["data"]["key"]
+
+    def get_sort_order() -> List[str]:
+        return get_profile(profile_name)["data"]["sort_key"]
 
     def elements_sort(elements_unsorted):
 
-        if FEATURE_LANG_SORT == False:
-            return sorted(
-                elements_unsorted,
-                key=lambda x: (
-                    x.get("addr:province"),
-                    x.get("short_name"),
-                    x["@id"],
-                ),
-                reverse=True,
-            )
-        else:
-            return sorted(
-                detect_langid(elements_unsorted),
-                key=lambda x: (
-                    x.get("@langid", "ja"),
-                    x.get("addr:province"),
-                    x.get("short_name"),
-                    x["@id"],
-                ),
-                reverse=True,
-            )
+        default_sort_lang = "ja"
+        elements_to_sort = (
+            detect_langid(elements_unsorted)
+            if "@langid" in get_sort_order()
+            else elements_unsorted
+        )
 
-
-    def elements_completed_sorted():
-
-        if FEATURE_LANG_SORT == False:
-            return sorted(
-                elements_completed(),
-                key=lambda x: (
-                    x.get("addr:province"),
-                    x.get("short_name"),
-                    x["@id"],
-                ),
-                reverse=True,
-            )
-        else:
-            return sorted(
-                detect_langid(elements_completed()),
-                key=lambda x: (
-                    x.get("@langid", "ja"),
-                    x.get("addr:province"),
-                    x.get("short_name"),
-                    x["@id"],
-                ),
-                reverse=True,
-            )
-
-    def elements_uncompleted_sorted():
-        if FEATURE_LANG_SORT == False:
-            return sorted(elements_uncompleted(), key=lambda x: x["@id"])
-        else:
-            return sorted(
-                detect_langid(elements_uncompleted()),
-                key=lambda x: (
-                    x.get("@langid", "ja"),
-                    x["@id"],
-                ),
-            )
+        # return sorted(
+        #         elements_to_sort,
+        #         key=lambda x: (
+        #             x.get("@langid", default_sort_lang),
+        #             x.get("name"),
+        #             x.get("addr:province"),
+        #             x.get("short_name"),
+        #             x["@id"],
+        #         ),
+        #         reverse=True,
+        #     )
+        return sorted(
+            elements_to_sort,
+            key=lambda x: tuple(
+                list(
+                    [x.get("@langid", default_sort_lang)]
+                    + [x.get(key) for key in elements_to_sort]
+                )
+            ),
+            reverse=True,
+        )
 
     def get_clustering() -> List[str]:
         full_data = elements_full()
         clustered_data = list(
             set([slice.get("name", "None") for slice in full_data])
         )
-        # clustered_data_sorted = sorted(
-        #         detect_langid(clustered_data_sorted),
-        #         key=lambda x: (
-        #             x.get("@langid"),
-        #             x.get("name"),
-        #             x.get("brand"),
-        #             x["@id"],
-        #         ),
-        #         reverse=True,
-        #     )
         return "\n".join(clustered_data)
 
     print(
