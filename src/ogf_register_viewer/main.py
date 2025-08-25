@@ -6,14 +6,14 @@ from typing import Dict, List
 from method.gen_pages import gen_pages
 from method.get_plain_dataframe import get_plain_dataframe
 
-FEATURE_BATCH = True
+FEATURE_BATCH = False
 FEATURE_LANG_SORT = True
 
 
 def single_run(profile_name="", clustering: bool = False):
     def get_profile(profile_name: str) -> dict:
         if profile_name == None or profile_name == "":
-            profile_name = "youshouldinputavalidprofile.json"
+            profile_name = "hx.gov.miit.registry.post.json"
         profile_file = open(
             "../assets/profile/" + profile_name, "r", encoding="utf-8"
         )
@@ -24,9 +24,9 @@ def single_run(profile_name="", clustering: bool = False):
     def get_elements_dataframe() -> List[Dict]:
         return get_plain_dataframe(
             {
-                "key": get_profile(profile_name)["key"],
-                "type": get_profile(profile_name)["type"],
-                "poly": get_profile(profile_name)["poly"],
+                "key": get_profile(profile_name)["data"]["key"],
+                "type": get_profile(profile_name)["data"]["type"],
+                "poly": get_profile(profile_name)["data"]["poly"],
             }
         )
 
@@ -48,7 +48,7 @@ def single_run(profile_name="", clustering: bool = False):
                     break
             return flag_conform
 
-        vital_key_list = get_profile(profile_name)["vital_key"]
+        vital_key_list = get_profile(profile_name)["data"]["vital_key"]
 
         return list(
             filter(
@@ -183,15 +183,15 @@ def single_run(profile_name="", clustering: bool = False):
         len(elements_full()),
     )
 
-    if get_profile(profile_name).get("clustering", False):
+    if get_profile(profile_name)["data"].get("clustering", False):
         # print("☆" * 10, "\n", get_clustering(), "\n", "★" * 10)
         gen_pages(
             elements_completed_sorted(),
             elements_uncompleted_sorted(),
-            template_file_name=get_profile(profile_name)["template_file_name"],
+            template_file_name=get_profile(profile_name)["page"]["template"],
             dst_file_name=get_profile(profile_name)["id"],
             optional_data={
-                "page_title": get_profile(profile_name)["page_title"],
+                "page_title": get_profile(profile_name)["page"]["title"],
                 "clustered_data": get_clustering(),
             },
         )
@@ -199,10 +199,10 @@ def single_run(profile_name="", clustering: bool = False):
         gen_pages(
             elements_completed_sorted(),
             elements_uncompleted_sorted(),
-            template_file_name=get_profile(profile_name)["template_file_name"],
+            template_file_name=get_profile(profile_name)["page"]["template"],
             dst_file_name=get_profile(profile_name)["id"],
             optional_data={
-                "page_title": get_profile(profile_name)["page_title"]
+                "page_title": get_profile(profile_name)["page"]["title"]
             },
         )
 
