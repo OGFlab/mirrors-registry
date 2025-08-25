@@ -10,7 +10,7 @@
   ],
   "type": "[amenity=college]",
   "poly": "hx.overpassql_poly",
-  "vital_key": "short_name",
+  "vital_key": ["short_name"],
   "template_file_name": "hx.gov.moce.registry.school-type.jinja2",
   "page_title": "MOCE of Republic of Huaxia - Universities List"
 }

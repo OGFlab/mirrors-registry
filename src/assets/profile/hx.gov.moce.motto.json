@@ -12,7 +12,7 @@
   ],
   "type": "[amenity=university]",
   "poly": "hx.overpassql_poly",
-  "vital_key": "short_name",
+  "vital_key": ["short_name"],
   "template_file_name": "hx.gov.moce.motto.jinja2",
   "page_title": "Universities' motto overview - MOCE"
 }
