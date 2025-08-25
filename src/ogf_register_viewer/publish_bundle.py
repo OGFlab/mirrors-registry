@@ -7,7 +7,7 @@ from zoneinfo import ZoneInfo
 
 from jinja2 import Template
 
-from method.const import HOSTING
+from method.const import HOSTING, NOT_PROFILE_NAME
 
 
 def get_local_timezone():
@@ -20,6 +20,8 @@ def get_local_timezone():
 
 
 # get profile list
+ignore_filename_list = NOT_PROFILE_NAME
+
 profiles = [
     "https_"
     + json.load(open("../assets/profile/" + profile, "r", encoding="utf-8"))
@@ -32,7 +34,7 @@ profiles = [
         filter(
             bool,
             [
-                profile if profile[0] != "_" else ""
+                profile if profile not in ignore_filename_list else ""
                 for profile in os.listdir("../assets/profile/")
             ],
         )

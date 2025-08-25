@@ -5,6 +5,7 @@ from typing import Dict, List
 
 from method.gen_pages import gen_pages
 from method.get_plain_dataframe import get_plain_dataframe
+from method.const import NOT_PROFILE_NAME
 
 FEATURE_BATCH = False
 FEATURE_LANG_SORT = True
@@ -210,7 +211,7 @@ def single_run(profile_name="", clustering: bool = False):
 if FEATURE_BATCH == False:
     single_run()
 else:
-    ignore_filename_list = ["_index.yaml", "README.md"]
+    ignore_filename_list = NOT_PROFILE_NAME
     for profile in list(
         filter(
             bool,
