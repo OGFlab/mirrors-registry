@@ -9,7 +9,7 @@
   ],
   "type": "[amenity=post_office]",
   "poly": "hx.overpassql_poly",
-  "vital_key": "name",
+  "vital_key": ["name", "branch"],
   "template_file_name": "hx.gov.miit.registry.post.jinja2",
   "page_title": "华夏邮政邮局早见表"
 }

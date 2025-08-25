@@ -9,12 +9,15 @@ from jinja2 import Template
 
 from method.const import HOSTING
 
+
 def get_local_timezone():
     from tzlocal import get_localzone
+
     try:
         return ZoneInfo(str(get_localzone()))
     except Exception:
         return ZoneInfo("UTC")
+
 
 # get profile list
 profiles = [
@@ -23,10 +26,8 @@ profiles = [
     .get("id")
     .replace(".jinja2", "")
     + "_index.html"
-
     # ↓ 需要在这里排除一下profile文件夹里面的index和readme
     # 今天没时间了下次一定
-
     for profile in list(
         filter(
             bool,

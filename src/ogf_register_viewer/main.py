@@ -38,16 +38,27 @@ def single_run(profile_name="", clustering: bool = False):
         return copy.deepcopy(elements_dataframe)
 
     def elements_completed() -> List[Dict]:
+        def detect_conform_vital_key(
+            item_dict, vital_key_list: List[str]
+        ) -> bool:
+            flag_conform = True
+            for vital_key in vital_key_list:
+                if item_dict.get(vital_key) == "":
+                    flag_conform = False
+                    break
+            return flag_conform
+
+        vital_key_list = get_profile(profile_name)["vital_key"]
+
         return list(
             filter(
                 bool,
                 [
                     (
                         item_dict
-                        if item_dict.get(
-                            get_profile(profile_name)["vital_key"]
+                        if detect_conform_vital_key(
+                            item_dict=item_dict, vital_key_list=vital_key_list
                         )
-                        != ""
                         else None
                     )
                     for item_dict in elements_dataframe
@@ -199,9 +210,7 @@ def single_run(profile_name="", clustering: bool = False):
 if FEATURE_BATCH == False:
     single_run()
 else:
-    ignore_filename_list=[
-        "_index.yaml", "README.md"
-    ]
+    ignore_filename_list = ["_index.yaml", "README.md"]
     for profile in list(
         filter(
             bool,
@@ -211,7 +220,7 @@ else:
             ],
         )
     ):
-        
+
         print(profile)
         if profile not in ignore_filename_list:
             single_run(profile_name=profile)
