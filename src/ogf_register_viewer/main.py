@@ -7,7 +7,7 @@ from method.const import NOT_PROFILE_NAME
 from method.gen_pages import gen_pages
 from method.get_plain_dataframe import get_plain_dataframe
 
-FEATURE_BATCH = True
+FEATURE_BATCH = False
 FEATURE_LANG_SORT = True
 
 
@@ -126,7 +126,7 @@ def single_run(profile_name="", clustering: bool = False):
     def get_sort_order()->List[str]:
         return get_profile(profile_name)["data"]["key"]
 
-    def elements_sorted(elements_unsorted):
+    def elements_sort(elements_unsorted):
 
         if FEATURE_LANG_SORT == False:
             return sorted(
@@ -205,9 +205,9 @@ def single_run(profile_name="", clustering: bool = False):
         return "\n".join(clustered_data)
 
     print(
-        len(elements_completed_sorted()),
+        len(elements_sort(elements_completed())),
         "+",
-        len(elements_uncompleted_sorted()),
+        len(elements_sort(elements_uncompleted())),
         "=",
         len(elements_full()),
     )
@@ -215,8 +215,8 @@ def single_run(profile_name="", clustering: bool = False):
     if get_profile(profile_name)["data"].get("clustering", False):
         # print("☆" * 10, "\n", get_clustering(), "\n", "★" * 10)
         gen_pages(
-            elements_completed_sorted(),
-            elements_uncompleted_sorted(),
+            elements_sort(elements_completed()),
+            elements_sort(elements_uncompleted()),
             template_file_name=get_profile(profile_name)["page"]["template"],
             dst_file_name=get_profile(profile_name)["id"],
             optional_data={
@@ -226,8 +226,8 @@ def single_run(profile_name="", clustering: bool = False):
         )
     else:
         gen_pages(
-            elements_completed_sorted(),
-            elements_uncompleted_sorted(),
+            elements_sort(elements_completed()),
+            elements_sort(elements_uncompleted()),
             template_file_name=get_profile(profile_name)["page"]["template"],
             dst_file_name=get_profile(profile_name)["id"],
             optional_data={
