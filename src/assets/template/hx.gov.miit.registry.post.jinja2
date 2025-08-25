@@ -24,6 +24,8 @@
     <table>
       <tr>
         <th style="font-size: 16px">ID</th>
+        <th>省份<br /><code>addr:province</code></th>
+        <th>等级<br /><code>type:post_office:HX</code></th>
         <th>中文名<br /><code>name</code></th>
         <th>分支机构<br /><code>branch</code></th>
         <th>英文名<br /><code>name:en</code></th>
@@ -37,6 +39,8 @@
             >{{ element['@type'] }}{{ element['@id'] }}</a
           >
         </td>
+        <td>{{ element['addr:province'] }}</td>
+        <td>{{ element['type:post_office:HX'] }}</td>
         <td>{{ element['name'] }}</td>
         <td>{{ element['branch'] }}</td>
         <td>{{ element['name:en'] }}</td>
@@ -48,6 +52,8 @@
     <table>
       <tr>
         <th>ID</th>
+        <th>省份<br /><code>addr:province</code></th>
+        <th>等级<br /><code>type:post_office:HX</code></th>
         <th>中文名<br /><code>name</code></th>
         <th>分支机构<br /><code>branch</code></th>
         <th>英文名<br /><code>name:en</code></th>
@@ -61,6 +67,8 @@
             >{{ element['@type'] }}{{ element['@id'] }}</a
           >
         </td>
+        <td>{{ element['addr:province'] }}</td>
+        <td>{{ element['type:post_office:HX'] }}</td>
         <td>{{ element['name'] }}</td>
         <td>{{ element['branch'] }}</td>
         <td>{{ element['name:en'] }}</td>

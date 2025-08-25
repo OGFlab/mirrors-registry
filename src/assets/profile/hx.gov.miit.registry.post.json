@@ -3,7 +3,9 @@
   "key": [
     "name",
     "name:en",
-    "branch"
+    "branch",
+    "addr:province",
+    "type:post_office:HX"
   ],
   "type": "[amenity=post_office]",
   "poly": "hx.overpassql_poly",
