@@ -122,6 +122,34 @@ def single_run(profile_name="", clustering: bool = False):
         # pprint(extend_element_completed)
 
         return extend_element_completed
+    
+    def get_sort_order()->List[str]:
+        return get_profile(profile_name)["data"]["key"]
+
+    def elements_sorted(elements_unsorted):
+
+        if FEATURE_LANG_SORT == False:
+            return sorted(
+                elements_unsorted,
+                key=lambda x: (
+                    x.get("addr:province"),
+                    x.get("short_name"),
+                    x["@id"],
+                ),
+                reverse=True,
+            )
+        else:
+            return sorted(
+                detect_langid(elements_unsorted),
+                key=lambda x: (
+                    x.get("@langid", "ja"),
+                    x.get("addr:province"),
+                    x.get("short_name"),
+                    x["@id"],
+                ),
+                reverse=True,
+            )
+
 
     def elements_completed_sorted():
 
