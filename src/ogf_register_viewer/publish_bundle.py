@@ -2,22 +2,15 @@
 import json
 import os
 import shutil
-from datetime import datetime, timezone
-from zoneinfo import ZoneInfo
 
 from jinja2 import Template
 
 from method.const import HOSTING, NOT_PROFILE_NAME
-
-
-def get_local_timezone():
-    from tzlocal import get_localzone
-
-    try:
-        return ZoneInfo(str(get_localzone()))
-    except Exception:
-        return ZoneInfo("UTC")
-
+from method.environment import (
+    get_environment_description,
+    get_local_time,
+    get_local_timezone,
+)
 
 # get profile list
 ignore_filename_list = NOT_PROFILE_NAME
@@ -51,7 +44,9 @@ index_template_file.close()
 index_html = Template(index_template).render(
     hosting_path=HOSTING,
     profiles=profiles,
-    gen_time=datetime.now(get_local_timezone()).isoformat(),
+    gen_time=get_local_time(),
+    meta_local_timezone=get_local_timezone(),
+    meta_build_machine=get_environment_description(),
 )
 # print(index_html)
 
@@ -78,5 +73,5 @@ for script in assets_script_list:
 
 # gitkeep
 if os.path.exists("../../dist/.gitkeep") != True:
-    with open("../../dist/.gitkeep","w") as f:
+    with open("../../dist/.gitkeep", "w") as f:
         f.write("")

@@ -1,25 +1,14 @@
 import os
 import webbrowser
-from datetime import datetime, timezone
-from zoneinfo import ZoneInfo
 
 from jinja2 import Template
-from tzlocal import get_localzone
 
 from method.const import OSS
-
-
-def get_environment_description() -> str:
-    import platform
-
-    return f"{platform.node()} ({platform.platform()} @ {platform.processor()};{platform.python_implementation()} {platform.python_build()[0]})"
-
-
-def get_local_timezone():
-    try:
-        return ZoneInfo(str(get_localzone()))
-    except Exception:
-        return ZoneInfo("UTC")
+from method.environment import (
+    get_environment_description,
+    get_local_time,
+    get_local_timezone,
+)
 
 
 def gen_pages(
@@ -48,7 +37,7 @@ def gen_pages(
         + len(elements_uncompleted_sorted),
         page_title=optional_data["page_title"],
         oss_path=OSS,
-        gen_time=datetime.now(get_local_timezone()).isoformat(),
+        gen_time=get_local_time(),
         meta_local_timezone=get_local_timezone(),
         meta_build_machine=get_environment_description(),
         clustered_data=clustered_data.replace("\n", "<br/>"),
@@ -57,12 +46,15 @@ def gen_pages(
     html_file_path = os.path.join(
         os.path.dirname(__file__), "..", "..", "..", "dist", html_file_name
     )
-    if os.path.exists(os.path.join(
-        os.path.dirname(__file__), "..", "..", "..", "dist"
-    )) == False:
-        os.mkdir(os.path.join(
-        os.path.dirname(__file__), "..", "..", "..", "dist"
-    ))
+    if (
+        os.path.exists(
+            os.path.join(os.path.dirname(__file__), "..", "..", "..", "dist")
+        )
+        == False
+    ):
+        os.mkdir(
+            os.path.join(os.path.dirname(__file__), "..", "..", "..", "dist")
+        )
     with open(html_file_path, "w", encoding="utf-8") as file:
         file.write(rendered_html)
     webbrowser.open("file://" + os.path.realpath(html_file_path))

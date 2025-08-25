@@ -3,9 +3,9 @@ import json
 import os
 from typing import Dict, List
 
+from method.const import NOT_PROFILE_NAME
 from method.gen_pages import gen_pages
 from method.get_plain_dataframe import get_plain_dataframe
-from method.const import NOT_PROFILE_NAME
 
 FEATURE_BATCH = True
 FEATURE_LANG_SORT = True
@@ -212,6 +212,7 @@ if FEATURE_BATCH == False:
     single_run()
 else:
     ignore_filename_list = NOT_PROFILE_NAME
+
     for profile in list(
         filter(
             bool,
@@ -221,8 +222,8 @@ else:
             ],
         )
     ):
-
         print(profile)
         if profile not in ignore_filename_list:
             single_run(profile_name=profile)
-            os.system("python publish_bundle.py")
+
+    os.system("python publish_bundle.py")
