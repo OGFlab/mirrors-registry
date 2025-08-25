@@ -56,6 +56,8 @@ index_html = Template(index_template).render(
 # print(index_html)
 
 # write index html
+if os.path.exists("../../dist/") == False:
+    os.mkdir("../../dist/")
 with open("../../dist/" + "index.html", "w", encoding="utf-8") as f:
     f.write(index_html)
 
@@ -73,3 +75,8 @@ for js in assets_js_list:
     shutil.copy(src="../assets/js/" + js, dst="../../dist/js/" + js)
 for script in assets_script_list:
     shutil.copy(src="../assets/script/" + script, dst="../../dist/" + script)
+
+# gitkeep
+if os.path.exists("../../dist/.gitkeep") != True:
+    with open("../../dist/.gitkeep","w") as f:
+        f.write("")

@@ -7,7 +7,7 @@ from method.gen_pages import gen_pages
 from method.get_plain_dataframe import get_plain_dataframe
 from method.const import NOT_PROFILE_NAME
 
-FEATURE_BATCH = False
+FEATURE_BATCH = True
 FEATURE_LANG_SORT = True
 
 

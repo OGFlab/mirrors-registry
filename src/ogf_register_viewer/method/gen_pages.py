@@ -57,6 +57,12 @@ def gen_pages(
     html_file_path = os.path.join(
         os.path.dirname(__file__), "..", "..", "..", "dist", html_file_name
     )
+    if os.path.exists(os.path.join(
+        os.path.dirname(__file__), "..", "..", "..", "dist"
+    )) == False:
+        os.mkdir(os.path.join(
+        os.path.dirname(__file__), "..", "..", "..", "dist"
+    ))
     with open(html_file_path, "w", encoding="utf-8") as file:
         file.write(rendered_html)
     webbrowser.open("file://" + os.path.realpath(html_file_path))
