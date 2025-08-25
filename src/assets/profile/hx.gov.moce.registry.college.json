@@ -1,11 +1,17 @@
 {
   "id": "college.registry.moce.gov.hx",
-    "data": {
-    "key": ["name", "name:en", "brand"],
-    "type": "[office=telecommunication]",
+  "data": {
+    "key": [
+      "amenity",
+      "name",
+      "name:en",
+      "short_name",
+      "addr:province",
+      "operators"
+    ],
+    "type": "[amenity=college]",
     "poly": "hx.overpassql_poly",
-    "vital_key": ["name"],
-    "clustering": true
+    "vital_key": ["short_name"]
   },
   "key": [
     "amenity",
@@ -18,9 +24,9 @@
   "type": "[amenity=college]",
   "poly": "hx.overpassql_poly",
   "vital_key": ["short_name"],
-    "page": {
-    "template": "hx.gov.miit.registry.mno.jinja2",
-    "title": "Huaxia MNO & MVNO Operator List"
+  "page": {
+    "template": "hx.gov.moce.registry.school-type.jinja2",
+    "title": "MOCE of Republic of Huaxia - Universities List"
   },
   "template_file_name": "hx.gov.moce.registry.school-type.jinja2",
   "page_title": "MOCE of Republic of Huaxia - Universities List"

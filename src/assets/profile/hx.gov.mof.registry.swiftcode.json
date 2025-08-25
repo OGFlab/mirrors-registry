@@ -1,26 +1,26 @@
 {
   "id": "swiftcode.mof.gov.hx",
-    "data": {
-    "key": ["name", "name:en", "brand"],
-    "type": "[office=telecommunication]",
+  "data": {
+    "key": [
+      "amenity",
+      "name",
+      "branch",
+      "name:en",
+      "ref:swift",
+      "addr:province"
+    ],
+    "type": "[amenity=bank]",
     "poly": "hx.overpassql_poly",
-    "vital_key": ["name"],
+    "vital_key": ["ref:swift"],
     "clustering": true
   },
-  "key": [
-    "amenity",
-    "name",
-    "branch",
-    "name:en",
-    "ref:swift",
-    "addr:province"
-  ],
+  "key": ["amenity", "name", "branch", "name:en", "ref:swift", "addr:province"],
   "type": "[amenity=bank]",
   "poly": "hx.overpassql_poly",
   "vital_key": ["ref:swift"],
-    "page": {
-    "template": "hx.gov.miit.registry.mno.jinja2",
-    "title": "Huaxia MNO & MVNO Operator List"
+  "page": {
+    "template": "hx.gov.mof.registry.swiftcode.jinja2",
+    "title": "财政部与银保监会关于各银行Swiftcode分配情况的公示(含支行)"
   },
   "template_file_name": "hx.gov.mof.registry.swiftcode.jinja2",
   "page_title": "财政部与银保监会关于各银行Swiftcode分配情况的公示(含支行)",

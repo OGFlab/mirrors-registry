@@ -1,11 +1,19 @@
 {
   "id": "motto.moce.gov.hx",
-    "data": {
-    "key": ["name", "name:en", "brand"],
-    "type": "[office=telecommunication]",
+  "data": {
+    "key": [
+      "amenity",
+      "name",
+      "name:en",
+      "ref",
+      "short_name",
+      "addr:province",
+      "operators",
+      "motto"
+    ],
+    "type": "[amenity=university]",
     "poly": "hx.overpassql_poly",
-    "vital_key": ["name"],
-    "clustering": true
+    "vital_key": ["short_name"]
   },
   "key": [
     "amenity",
@@ -20,9 +28,9 @@
   "type": "[amenity=university]",
   "poly": "hx.overpassql_poly",
   "vital_key": ["short_name"],
-    "page": {
-    "template": "hx.gov.miit.registry.mno.jinja2",
-    "title": "Huaxia MNO & MVNO Operator List"
+  "page": {
+    "template": "hx.gov.moce.motto.jinja2",
+    "title": "Universities' motto overview - MOCE"
   },
   "template_file_name": "hx.gov.moce.motto.jinja2",
   "page_title": "Universities' motto overview - MOCE"

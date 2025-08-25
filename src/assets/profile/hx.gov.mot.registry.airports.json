@@ -1,26 +1,18 @@
 {
   "id": "airports.mot.gov.hx",
-    "data": {
-    "key": ["name", "name:en", "brand"],
-    "type": "[office=telecommunication]",
+  "data": {
+    "key": ["name", "name:en", "iata", "icao", "waat", "anaca"],
+    "type": "[aeroway=aerodrome]",
     "poly": "hx.overpassql_poly",
-    "vital_key": ["name"],
-    "clustering": true
+    "vital_key": ["iata"]
   },
-  "key": [
-    "name",
-    "name:en",
-    "iata",
-    "icao",
-    "waat",
-    "anaca"
-  ],
+  "key": ["name", "name:en", "iata", "icao", "waat", "anaca"],
   "type": "[aeroway=aerodrome]",
   "poly": "hx.overpassql_poly",
   "vital_key": ["iata"],
-    "page": {
-    "template": "hx.gov.miit.registry.mno.jinja2",
-    "title": "Huaxia MNO & MVNO Operator List"
+  "page": {
+    "template": "hx.gov.mot.registry.airports.jinja2",
+    "title": "MOT of Republic of Huaxia - Airports List"
   },
   "template_file_name": "hx.gov.mot.registry.airports.jinja2",
   "page_title": "MOT of Republic of Huaxia - Airports List"
