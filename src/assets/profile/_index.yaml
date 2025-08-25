@@ -1,18 +1,28 @@
 ogf:
   .hx:
     .gov:
-      .moe:
+      .miit:
         .registry:
-          - name: "教育部大学注册表"
+          .mno:
+            - name: "工信部虚拟运营商注册表"
+          .post:
+            - name: "工信部邮局注册表"
+      .moce:
         .motto:
-          - name: "教育部校训注册表"
-      .mot:
-        .airports:
-          - name: "交通运输部机场注册表"
+          - name: "全国大中小学校训"
+        .registry:
+          .college:
+            - name: "教育部非学历高等教育机构注册表"
+          .university:
+            - name: "教育部高等教育机构注册表"
       .mof:
-        .swiftcode:
-          - name: "财政部银保监会swiftcode交换信息"
-
+        .registry:
+          .swiftcode:
+            - name: "财政部银保监会swiftcode交换信息"
+      .mot:
+        .registry:
+          .airports:
+            - name: "交通运输部机场注册表"
 # 水表区注册表
 # 橘子注册表
 # 公交铁路路线注册表、运营网络注册表

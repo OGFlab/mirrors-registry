@@ -13,21 +13,8 @@
     "poly": "hx.overpassql_poly",
     "vital_key": ["short_name"]
   },
-  "key": [
-    "amenity",
-    "name",
-    "name:en",
-    "short_name",
-    "addr:province",
-    "operators"
-  ],
-  "type": "[amenity=college]",
-  "poly": "hx.overpassql_poly",
-  "vital_key": ["short_name"],
   "page": {
     "template": "hx.gov.moce.registry.school-type.jinja2",
     "title": "MOCE of Republic of Huaxia - Universities List"
-  },
-  "template_file_name": "hx.gov.moce.registry.school-type.jinja2",
-  "page_title": "MOCE of Republic of Huaxia - Universities List"
+  }
 }

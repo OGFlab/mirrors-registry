@@ -6,14 +6,8 @@
     "poly": "hx.overpassql_poly",
     "vital_key": ["iata"]
   },
-  "key": ["name", "name:en", "iata", "icao", "waat", "anaca"],
-  "type": "[aeroway=aerodrome]",
-  "poly": "hx.overpassql_poly",
-  "vital_key": ["iata"],
   "page": {
     "template": "hx.gov.mot.registry.airports.jinja2",
     "title": "MOT of Republic of Huaxia - Airports List"
-  },
-  "template_file_name": "hx.gov.mot.registry.airports.jinja2",
-  "page_title": "MOT of Republic of Huaxia - Airports List"
+  }
 }

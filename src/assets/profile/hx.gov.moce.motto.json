@@ -15,23 +15,8 @@
     "poly": "hx.overpassql_poly",
     "vital_key": ["short_name"]
   },
-  "key": [
-    "amenity",
-    "name",
-    "name:en",
-    "ref",
-    "short_name",
-    "addr:province",
-    "operators",
-    "motto"
-  ],
-  "type": "[amenity=university]",
-  "poly": "hx.overpassql_poly",
-  "vital_key": ["short_name"],
   "page": {
     "template": "hx.gov.moce.motto.jinja2",
-    "title": "Universities' motto overview - MOCE"
-  },
-  "template_file_name": "hx.gov.moce.motto.jinja2",
-  "page_title": "Universities' motto overview - MOCE"
+    "title": "全国大中小学校训 | Institutes' motto overview - MOCE"
+  }
 }
