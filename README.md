@@ -1,13 +1,13 @@
-# ogf-registry-viewer
+# mirrors-registry
 
-## Current Template
+Mirrors is a project aimed at build a virtual website group accesible by real world Internet to make the geofiction more realistic.
 
-* **airports.mot.gov.hx**
-* **registry.moe.gov.hx**
+## Current supported area
+
+* Huaxia
 
 
-
-## Maintain
+## Develope and Maintain
 
 Use [prettier](https://prettier.io/) format frontend code
 
@@ -15,7 +15,7 @@ Use [prettier](https://prettier.io/) format frontend code
 prettier <filename> --write
 ```
 
-## TODO(in Chinese)
+## TODO (in Chinese)
 
 1. 对所有类目：对vital_key进行查重，出现重复的时候自动加粗标红
 2. 对大学：自动识别母体大学，合并多个校区代码不会重复出现
